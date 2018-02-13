@@ -8,7 +8,6 @@ const Container = styled.section`
   padding-top: 16px;
   padding-bottom: 24px;
   background: linear-gradient(162.96deg, #00b0de 41.41%, #196ebd 141.41%);
-  min-height: 1000px;
 `;
 
 const Title = styled.h1`
