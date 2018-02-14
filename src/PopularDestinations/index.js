@@ -56,6 +56,7 @@ const CityName = styled.p`
 
 const Nav = styled.nav`
   padding-top: 32px;
+  margin-bottom: 40px;
 `;
 
 const NavIcon = styled.div`
