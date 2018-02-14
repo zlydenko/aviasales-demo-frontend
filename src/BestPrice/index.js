@@ -225,7 +225,7 @@ const Caption = styled.p`
 
 const BestPrice = () => (
   <Container>
-    <div class="container">
+    <div className="container">
       <CalendarIcon>
         <img src={calendar} alt="" />
       </CalendarIcon>
