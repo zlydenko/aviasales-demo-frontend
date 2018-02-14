@@ -21,7 +21,7 @@ import {
 const Container = styled.section`
   background-color: #f8fcff;
   padding-top: 40px;
-  min-height: 1000px;
+  padding-bottom: 40px;
 `;
 
 const CompassIcon = styled.div`
