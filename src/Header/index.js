@@ -6,7 +6,7 @@ import arrow from "./arrow.svg";
 import calendarIcon from "./calendar.svg";
 import dropdownArrow from "./dropdown-arrow.svg";
 
-const Container = styled.header`
+const Wrapper = styled.header`
   min-height: 100vh;
   background: linear-gradient(
     148.48deg,
@@ -158,7 +158,7 @@ const TicketClassText = styled.span`
 export default class Header extends Component {
   render() {
     return (
-      <Container>
+      <Wrapper>
         <div className="container">
           <div className="row">
             <div className="col-xs-2">
@@ -198,7 +198,7 @@ export default class Header extends Component {
             </div>
           </div>
         </div>
-      </Container>
+      </Wrapper>
     );
   }
 }
