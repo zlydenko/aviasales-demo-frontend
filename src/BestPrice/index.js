@@ -4,7 +4,6 @@ import calendar from "./calendar.svg";
 import ruFlag from "./flags/ru.png";
 import amFlag from "./flags/am.png";
 import mdFlag from "./flags/md.png";
-import separation from "./separation.svg";
 
 const Container = styled.section`
   background: linear-gradient(180deg, #f8fcff 0%, #ffffff 100%);
@@ -91,6 +90,10 @@ const Row = styled.div`
 
 const Card = styled.div`
   margin-bottom: 24px;
+  border-bottom: 2px dashed #afbec6;
+  &:last-child {
+    border-bottom: none;
+  }
 `;
 
 const SimferopolCard = () => (
@@ -123,7 +126,6 @@ const SimferopolCard = () => (
         <DepartureFrom>Из Челябинска</DepartureFrom>
         <Price>от 9 148 &#8381;</Price>
       </Row>
-      <img src={separation} alt="" />
     </main>
   </Card>
 );
@@ -158,7 +160,6 @@ const ErevanCard = () => (
         <DepartureFrom>Из Ростова-на-Дону</DepartureFrom>
         <Price>от 11 956 &#8381;</Price>
       </Row>
-      <img src={separation} alt="" />
     </main>
   </Card>
 );
