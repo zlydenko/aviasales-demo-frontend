@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import star from "./star.svg";
 import starbg from "./starbg.svg";
-import starClipped from "./star-clipped.svg";
 import phone from "./phone.png";
 import apple from "./apple.svg";
 import android from "./android.svg";
@@ -32,13 +31,6 @@ const Rating = styled.div`
     font-size: 14px;
     line-height: 20px;
   }
-`;
-
-const ClippedStar = styled.div`
-  width: 10px;
-  height: 10px;
-  background-image: url(${starbg});
-  background-position: center;
 `;
 
 const DownloadLinks = styled.div`
