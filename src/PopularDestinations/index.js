@@ -62,13 +62,14 @@ const NavIcon = styled.div`
   width: 48px;
   height: 48px;
   background-color: #fff;
-  box-shadow: 0px 4px 16px rgba(74, 74, 74, 0.12);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: auto;
   margin-left: auto;
+  box-shadow: ${props =>
+    props.active ? "0px 4px 16px rgba(74, 74, 74, 0.12)" : "none"};
 `;
 
 const NavItem = styled.div`
@@ -111,7 +112,7 @@ export default class PopularDestinations extends Component {
                   <div className="row">
                     <div className="col-xs-4">
                       <NavItem active>
-                        <NavIcon>
+                        <NavIcon active>
                           <img src={globe} alt="" />
                         </NavIcon>
                         <p>куда угодно</p>
