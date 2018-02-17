@@ -28,7 +28,7 @@ const Title = styled.h2`
 
 const Rating = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 `;
 
@@ -36,13 +36,15 @@ const RatingText = styled.span`
   color: #fff;
   font-size: 14px;
   line-height: 20px;
+  margin-left: 8px;
 `;
 
 const DownloadLinks = styled.div`
   margin-top: 15px;
-  & img {
-    margin-bottom: -4px;
-  }
+`;
+
+const Phone = styled.img`
+  transform: translateY(4px);
 `;
 
 const Link = styled.a`
@@ -91,7 +93,7 @@ const Download = () => (
       <div className="row">
         <div className="col-xs-6">
           <picture>
-            <img src={phone} srcSet={`${phone2x} 2x`} alt="" />
+            <Phone src={phone} srcSet={`${phone2x} 2x`} alt="" />
           </picture>
         </div>
         <div className="col-xs-6">
