@@ -227,19 +227,25 @@ const Footer = () => (
           <Link href="#">Поиск и бронирование отелей</Link>
         </div>
         <div className="col-xs-12">
-          <picture>
-            <img src={appStore} srcSet={`${appStore2x} 2x`} alt="" />
-          </picture>
+          <a href="#">
+            <picture>
+              <img src={appStore} srcSet={`${appStore2x} 2x`} alt="" />
+            </picture>
+          </a>
         </div>
         <div className="col-xs-12">
-          <picture>
-            <img src={googlePlay} srcSet={`${googlePlay2x} 2x`} alt="" />
-          </picture>
+          <a href="#">
+            <picture>
+              <img src={googlePlay} srcSet={`${googlePlay2x} 2x`} alt="" />
+            </picture>
+          </a>
         </div>
         <div className="col-xs-12">
-          <picture>
-            <img src={winPhone} srcSet={`${winPhone2x} 2x`} alt="" />
-          </picture>
+          <a href="#">
+            <picture>
+              <img src={winPhone} srcSet={`${winPhone2x} 2x`} alt="" />
+            </picture>
+          </a>
         </div>
         <div className="col-xs-12">
           <LegalInfo>© 2007–2018, Aviasales — дешевые авиабилеты</LegalInfo>
