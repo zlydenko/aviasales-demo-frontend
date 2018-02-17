@@ -13,7 +13,7 @@ const Container = styled.section`
   background: linear-gradient(137.4deg, #00b0de 4.18%, #196ebd 104.18%);
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   margin: 0px;
   margin-bottom: 19px;
   font-size: 24px;
