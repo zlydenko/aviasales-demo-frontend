@@ -16,7 +16,7 @@ import {
   MinVodiCard,
   SimferopolCard,
   BarselonaCard
-} from "./TopDestinationCard";
+} from "./Card";
 
 const Container = styled.section`
   background-color: #f8fcff;
