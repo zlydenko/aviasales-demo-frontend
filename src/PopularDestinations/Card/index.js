@@ -1,26 +1,34 @@
 import React from "react";
 import styled from "styled-components";
-import krasnodar from "./cityImages/krasnodar.png";
-import barselona from "./cityImages/barselona.png";
-import minvodi from "./cityImages/minvodi.png";
-import saintpetersburg from "./cityImages/saintpetersburg.png";
-import simferopol from "./cityImages/simferopol.png";
-import sochi from "./cityImages/sochi.png";
 
-const Container = styled.div`
+const Card = styled.div`
   background-color: #fff;
   box-shadow: 0px 2px 12px rgba(0, 75, 93, 0.12);
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &:focus {
+    box-shadow: 2px 8px 14px rgba(0, 75, 93, 0.12);
+  }
 `;
 
-const Cover = styled.div`
+const Cover = styled.img`
+  width: 100%;
   height: 126px;
-  & img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  object-fit: cover;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+
+  @media (min-width: 768px) {
+    height: 176px;
+  }
+
+  @media (min-width: 1440px) {
+    height: 212px;
   }
 `;
 
@@ -29,9 +37,35 @@ const Caption = styled.div`
   padding-bottom: 12px;
   padding-right: 16px;
   padding-left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
-const RouteName = styled.h1`
+const Flag = styled.img`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 16px;
+`;
+
+const Direction = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const DirectionInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const AdditionalInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const City = styled.p`
   font-size: 16px;
   line-height: 20px;
   color: #5b5b5c;
@@ -40,146 +74,67 @@ const RouteName = styled.h1`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+
+  @media (min-width: 768px) {
+    margin-top: 12px;
+    font-size: 22px;
+    line-height: 32px;
+  }
 `;
 
-const RouteCountry = styled.span`
+const Country = styled.p`
   font-size: 12px;
   line-height: 20px;
   color: #a0b0b9;
   text-transform: uppercase;
   font-weight: 500;
+  text-align: left;
 `;
 
-const RoutePrice = styled.span`
+const Link = styled.a`
+  text-decoration: none;
   font-size: 14px;
   line-height: 16px;
   color: #00bae8;
   font-weight: 400;
   white-space: nowrap;
+
+  &:hover {
+    color: #ff8c00;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: 12px;
+    font-size: 22px;
+    line-height: 32px;
+  }
 `;
 
-const RouteDate = styled.span`
+const DateText = styled.p`
   font-size: 12px;
   line-height: 20px;
   color: #a0b0b9;
   font-weight: 500;
+  text-align: right;
 `;
 
-const Row = styled.div`
-  margin: 0px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  &:first-child {
-    margin-bottom: 5px;
-  }
-`;
-
-export const KrasnodarCard = () => (
-  <Container>
-    <Cover>
-      <img src={krasnodar} alt="" />
-    </Cover>
-    <Caption>
-      <Row>
-        <RouteName>Краснодар</RouteName>
-        <RoutePrice>Найти от 1 212 &#8381;</RoutePrice>
-      </Row>
-      <Row>
-        <RouteCountry>Россия</RouteCountry>
-        <RouteDate>18 марта</RouteDate>
-      </Row>
-    </Caption>
-  </Container>
-);
-
-export const SochiCard = () => (
-  <Container>
-    <Cover>
-      <img src={sochi} alt="" />
-    </Cover>
-    <Caption>
-      <Row>
-        <RouteName>Сочи (Адлер)</RouteName>
-        <RoutePrice>Найти от 1 334 &#8381;</RoutePrice>
-      </Row>
-      <Row>
-        <RouteCountry>Россия</RouteCountry>
-        <RouteDate>27 марта</RouteDate>
-      </Row>
-    </Caption>
-  </Container>
-);
-
-export const SPetersburgCard = () => (
-  <Container>
-    <Cover>
-      <img src={saintpetersburg} alt="" />
-    </Cover>
-    <Caption>
-      <Row>
-        <RouteName>Санкт-Петербург</RouteName>
-        <RoutePrice>Найти от 1 508 &#8381;</RoutePrice>
-      </Row>
-      <Row>
-        <RouteCountry>Россия</RouteCountry>
-        <RouteDate>19 февраля</RouteDate>
-      </Row>
-    </Caption>
-  </Container>
-);
-
-export const MinVodiCard = () => (
-  <Container>
-    <Cover>
-      <img src={minvodi} alt="" />
-    </Cover>
-    <Caption>
-      <Row>
-        <RouteName>Минеральные Воды</RouteName>
-        <RoutePrice>Найти от 2 074 &#8381;</RoutePrice>
-      </Row>
-      <Row>
-        <RouteCountry>Россия</RouteCountry>
-        <RouteDate>13 марта</RouteDate>
-      </Row>
-    </Caption>
-  </Container>
-);
-
-export const SimferopolCard = () => (
-  <Container>
-    <Cover>
-      <img src={simferopol} alt="" />
-    </Cover>
-    <Caption>
-      <Row>
-        <RouteName>Симферополь (Крым)</RouteName>
-        <RoutePrice>Найти от 2 407 &#8381;</RoutePrice>
-      </Row>
-      <Row>
-        <RouteCountry>Крым</RouteCountry>
-        <RouteDate>13 марта</RouteDate>
-      </Row>
-    </Caption>
-  </Container>
-);
-
-export const BarselonaCard = () => (
-  <Container>
-    <Cover>
-      <img src={barselona} alt="" />
-    </Cover>
-    <Caption>
-      <Row>
-        <RouteName>Барселона</RouteName>
-        <RoutePrice>Найти от 4 247 &#8381;</RoutePrice>
-      </Row>
-      <Row>
-        <RouteCountry>Испания</RouteCountry>
-        <RouteDate>24 марта</RouteDate>
-      </Row>
-    </Caption>
-  </Container>
-);
+export default props => {
+  return (
+    <Card>
+      <Cover src={props.img} alt={props.country} />
+      <Caption>
+        <Direction>
+          <Flag src={props.countryFlag} alt={props.country} />
+          <DirectionInfo>
+            <City>{props.city}</City>
+            <Country>{props.country}</Country>
+          </DirectionInfo>
+        </Direction>
+        <AdditionalInfo>
+          <Link href="./">Найти от {props.price}&#8381;</Link>
+          <DateText>{props.date}</DateText>
+        </AdditionalInfo>
+      </Caption>
+    </Card>
+  );
+};
