@@ -4,15 +4,18 @@ import pobedaIcon from "./airlines-icons/pobeda.png";
 import lufthansaIcon from "./airlines-icons/lufthansa.png";
 import pobedaIcon2x from "./airlines-icons/pobeda2x.png";
 import lufthansaIcon2x from "./airlines-icons/lufthansa2x.png";
-import starAllianceIcon from "./airlines-icons/staralliance.svg";
+import starAlliance from "./airlines-icons/staralliance.png";
+import starAlliance2x from "./airlines-icons/staralliance2x.png";
 
 const Container = styled.section`
   padding-top: 16px;
   padding-bottom: 24px;
+  padding-right: 8px;
+  padding-left: 8px;
   background: linear-gradient(162.96deg, #00b0de 41.41%, #196ebd 141.41%);
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   color: #fff;
   font-size: 28px;
   line-height: 33px;
@@ -25,25 +28,26 @@ const Card = styled.div`
   background-color: #fff;
   color: #242424;
   margin-bottom: 12px;
-  &:last-child {
-    margin-bottom: 0px;
-  }
 `;
 
 const Header = styled.header`
   background-color: #cd2027;
   color: #fff;
 
-  padding: 22px 16px;
+  padding: 12px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
 const HeaderText = styled.p`
-  margin: 0px;
+  margin-top: 9px;
+  margin-bottom: 9px;
   font-size: 16px;
   line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 const Head = styled.header`
@@ -58,6 +62,10 @@ const Main = styled.main`
   padding-bottom: 16px;
   padding-right: 8px;
   padding-left: 8px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const AirlineIcon = styled.img`
@@ -94,6 +102,7 @@ const Text = styled.p`
   line-height: 16px;
   font-weight: 500;
   color: #242424;
+  text-align: left;
 `;
 
 const MoreBtn = styled.button`
@@ -141,8 +150,10 @@ const PobedaCard = () => (
       </Head>
       <main>
         <Text>
-          Билеты от 499 рублей!
-          <p>Специальное предложение от авиакомпании Победа</p>
+          <p>
+            Билеты от 499 рублей! <br />Специальное предложение от авиакомпании
+            Победа
+          </p>
         </Text>
       </main>
       <MoreBtn>Узнать подробности</MoreBtn>
@@ -154,7 +165,11 @@ const LufthansaNYCard = () => (
   <Card>
     <Header>
       <HeaderText>В Нью-Йорк от 20 680 &#8381;</HeaderText>
-      <img src={starAllianceIcon} alt="" />
+      <img
+        src={starAlliance}
+        srcSet={`${starAlliance2x} 2x`}
+        alt="star alliance"
+      />
     </Header>
     <Main>
       <Head>
@@ -187,7 +202,11 @@ const LufthansaLACard = () => (
   <Card>
     <Header>
       <HeaderText>В Лос-Анджелес от…</HeaderText>
-      <img src={starAllianceIcon} alt="" />
+      <img
+        src={starAlliance}
+        srcSet={`${starAlliance2x} 2x`}
+        alt="star alliance"
+      />
     </Header>
     <Main>
       <Head>
@@ -218,18 +237,27 @@ const LufthansaLACard = () => (
 
 const SpecialOffers = () => (
   <Container>
-    <div className="container">
-      <Title>Спецпредложения на авиабилеты</Title>
-
-      <PobedaCard />
-      <LufthansaNYCard />
-      <LufthansaLACard />
-
-      <Footer>
-        <Link href="#">Смотреть все спецпредложения</Link>
-        <FooterText>* средняя цена по направлению</FooterText>
-      </Footer>
+    <div className="row center-xs">
+      <div className="col-xs-12 col-lg-10">
+        <Title>Спецпредложения на авиабилеты</Title>
+        <div className="row">
+          <div className="col-xs-12 col-md-4">
+            <PobedaCard />
+          </div>
+          <div className="col-xs-12 col-md-4">
+            <LufthansaNYCard />
+          </div>
+          <div className="col-xs-12 col-md-4">
+            <LufthansaLACard />
+          </div>
+        </div>
+      </div>
     </div>
+
+    <Footer>
+      <Link href="#">Смотреть все спецпредложения</Link>
+      <FooterText>* средняя цена по направлению</FooterText>
+    </Footer>
   </Container>
 );
 
