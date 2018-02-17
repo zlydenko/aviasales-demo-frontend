@@ -49,9 +49,10 @@ const CityName = styled.p`
   margin-top: 0px;
   margin-bottom: 0px;
   color: #00ace2;
-  & img {
-    margin-left: 5px;
-  }
+`;
+
+const Edit = styled.img`
+  margin-left: 5px;
 `;
 
 const Nav = styled.nav`
@@ -81,11 +82,12 @@ const NavItem = styled.div`
   text-transform: uppercase;
   margin-bottom: 24px;
   cursor: ${props => (props.active ? "auto" : "pointer")};
+  border-bottom: ${props => (props.active ? "1px solid #00ACE2" : "none")};
+`;
 
-  & p {
-    margin-top: 12px;
-    border-bottom: ${props => (props.active ? "1px solid #00ACE2" : "none")};
-  }
+const NavText = styled.p`
+  margin-top: 12px;
+  color: ${props => (props.active ? "#5C5C5C" : "#00ACE2")};
 `;
 
 export default class PopularDestinations extends Component {
@@ -103,7 +105,7 @@ export default class PopularDestinations extends Component {
               <Title>
                 Популярные направления перелетов из города
                 <CityName>
-                  Москва <img src={edit} alt="" />
+                  Москва <Edit src={edit} alt="" />
                 </CityName>
               </Title>
             </div>
@@ -116,7 +118,7 @@ export default class PopularDestinations extends Component {
                         <NavIcon active>
                           <img src={globe} alt="" />
                         </NavIcon>
-                        <p>куда угодно</p>
+                        <NavText active>куда угодно</NavText>
                       </NavItem>
                     </div>
                     <div className="col-xs-4">
@@ -124,7 +126,7 @@ export default class PopularDestinations extends Component {
                         <NavIcon>
                           <img src={palm} alt="" />
                         </NavIcon>
-                        <p>солнце и море</p>
+                        <NavText>солнце и море</NavText>
                       </NavItem>
                     </div>
                     <div className="col-xs-4">
@@ -132,7 +134,7 @@ export default class PopularDestinations extends Component {
                         <NavIcon>
                           <img src={shoppingCart} alt="" />
                         </NavIcon>
-                        <p>шопинг, город</p>
+                        <NavText>шопинг, город</NavText>
                       </NavItem>
                     </div>
                     <div className="col-xs-4">
@@ -140,7 +142,7 @@ export default class PopularDestinations extends Component {
                         <NavIcon>
                           <img src={culture} alt="" />
                         </NavIcon>
-                        <p>культура и история</p>
+                        <NavText>культура и история</NavText>
                       </NavItem>
                     </div>
                     <div className="col-xs-4">
@@ -148,7 +150,7 @@ export default class PopularDestinations extends Component {
                         <NavIcon>
                           <img src={nightlife} alt="" />
                         </NavIcon>
-                        <p>ночная жизнь</p>
+                        <NavText>ночная жизнь</NavText>
                       </NavItem>
                     </div>
                     <div className="col-xs-4">
@@ -156,7 +158,7 @@ export default class PopularDestinations extends Component {
                         <NavIcon>
                           <img src={babyCart} alt="" />
                         </NavIcon>
-                        <p>отдых с детьми</p>
+                        <NavText>отдых с детьми</NavText>
                       </NavItem>
                     </div>
                   </div>

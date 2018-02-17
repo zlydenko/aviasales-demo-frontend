@@ -26,11 +26,12 @@ const Rating = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  & span {
-    color: #fff;
-    font-size: 14px;
-    line-height: 20px;
-  }
+`;
+
+const RatingText = styled.span`
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
 `;
 
 const DownloadLinks = styled.div`
@@ -49,13 +50,13 @@ const Link = styled.a`
   align-items: center;
   margin-bottom: 20px;
 
-  & img {
-    margin-right: 8px;
-  }
-
   &:last-child {
     margin-bottom: 0px;
   }
+`;
+
+const PhoneIcon = styled.img`
+  margin-right: 8px;
 `;
 
 const Links = styled.div`
@@ -76,27 +77,27 @@ const Download = () => (
           <img src={star} alt="" />
           <img src={star} alt="" />
           <img src={star} alt="" />
-          <span>Более 103 000 оценок</span>
+          <RatingText>Более 103 000 оценок</RatingText>
         </Rating>
       </div>
     </div>
     <DownloadLinks>
       <div className="row">
         <div className="col-xs-6">
-          <img src={phone} alt="" />
+          <PhoneIcon src={phone} alt="" />
         </div>
         <div className="col-xs-6">
           <Links>
             <Link>
-              <img src={apple} alt="" />
+              <PhoneIcon src={apple} alt="" />
               <span>iPhone или iPad</span>
             </Link>
             <Link>
-              <img src={android} alt="" />
+              <PhoneIcon src={android} alt="" />
               <span>Android</span>
             </Link>
             <Link>
-              <img src={win} alt="" />
+              <PhoneIcon src={win} alt="" />
               <span>Windows Phone</span>
             </Link>
           </Links>

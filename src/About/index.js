@@ -7,7 +7,7 @@ import planeIcon2x from "./plane2x.png";
 import emailIcon2x from "./email2x.png";
 import listIcon2x from "./list2x.png";
 
-const Container = styled.section`
+const Wrapper = styled.section`
   padding-top: 20px;
   padding-bottom: 25px;
 `;
@@ -18,12 +18,9 @@ const Card = styled.div`
   line-height: 20px;
   text-align: left;
   margin-bottom: 16px;
+
   &:last-child {
     margin-bottom: 0px;
-  }
-
-  & p {
-    margin: 0px;
   }
 `;
 
@@ -35,9 +32,6 @@ const Title = styled.h2`
   align-items: center;
   margin: 0px;
   margin-bottom: 12px;
-  & img {
-    margin-right: 10px;
-  }
 `;
 
 const Link = styled.a`
@@ -49,7 +43,7 @@ const Link = styled.a`
 `;
 
 const About = () => (
-  <Container>
+  <Wrapper>
     <div className="container">
       <Card>
         <Title>
@@ -110,7 +104,7 @@ const About = () => (
         </p>
       </Card>
     </div>
-  </Container>
+  </Wrapper>
 );
 
 export default About;

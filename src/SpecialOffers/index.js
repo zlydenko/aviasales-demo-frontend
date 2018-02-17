@@ -33,16 +33,17 @@ const Card = styled.div`
 const Header = styled.header`
   background-color: #cd2027;
   color: #fff;
-  font-size: 16px;
-  line-height: 20px;
+
   padding: 22px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
 
-  & p {
-    margin: 0px;
-  }
+const HeaderText = styled.p`
+  margin: 0px;
+  font-size: 16px;
+  line-height: 20px;
 `;
 
 const Head = styled.header`
@@ -72,14 +73,14 @@ const Price = styled.p`
   font-size: 12px;
   line-height: 16px;
   text-align: right;
-
-  & span {
-    font-size: 20px;
-    line-height: 16px;
-  }
 `;
 
-const Date = styled.p`
+const PriceText = styled.span`
+  font-size: 20px;
+  line-height: 16px;
+`;
+
+const DateText = styled.p`
   margin: 0px;
   color: #d93633;
   font-size: 12px;
@@ -93,9 +94,6 @@ const Text = styled.p`
   line-height: 16px;
   font-weight: 500;
   color: #242424;
-  & p {
-    margin: 0px;
-  }
 `;
 
 const MoreBtn = styled.button`
@@ -113,11 +111,13 @@ const MoreBtn = styled.button`
 const Footer = styled.footer`
   color: #fff;
   text-align: center;
-  & p {
-    margin: 0px;
-    margin-top: 8px;
-  }
 `;
+
+const FooterText = styled.p`
+  margin: 0px;
+  margin-top: 8px;
+`;
+
 const Link = styled.a`
   color: #fff;
 `;
@@ -125,7 +125,7 @@ const Link = styled.a`
 const PobedaCard = () => (
   <Card>
     <Header>
-      <p>Билеты от 499 рублей!</p>
+      <HeaderText>Билеты от 499 рублей!</HeaderText>
     </Header>
     <Main>
       <Head>
@@ -134,9 +134,9 @@ const PobedaCard = () => (
         </picture>
         <div>
           <Price>
-            от <span>499 &#8381;</span>
+            от <PriceText>499 &#8381;</PriceText>
           </Price>
-          <Date>Осталось 45 дней</Date>
+          <DateText>Осталось 45 дней</DateText>
         </div>
       </Head>
       <main>
@@ -153,7 +153,7 @@ const PobedaCard = () => (
 const LufthansaNYCard = () => (
   <Card>
     <Header>
-      <p>В Нью-Йорк от 20 680 &#8381;</p>
+      <HeaderText>В Нью-Йорк от 20 680 &#8381;</HeaderText>
       <img src={starAllianceIcon} alt="" />
     </Header>
     <Main>
@@ -167,9 +167,9 @@ const LufthansaNYCard = () => (
         </picture>
         <div>
           <Price>
-            от <span>20 680 &#8381;</span>
+            от <PriceText>20 680 &#8381;</PriceText>
           </Price>
-          <Date>Осталось 19 дней</Date>
+          <DateText>Осталось 19 дней</DateText>
         </div>
       </Head>
       <main>
@@ -186,7 +186,7 @@ const LufthansaNYCard = () => (
 const LufthansaLACard = () => (
   <Card>
     <Header>
-      <p>В Лос-Анджелес от…</p>
+      <HeaderText>В Лос-Анджелес от…</HeaderText>
       <img src={starAllianceIcon} alt="" />
     </Header>
     <Main>
@@ -200,9 +200,9 @@ const LufthansaLACard = () => (
         </picture>
         <div>
           <Price>
-            от <span>20 360 &#8381;</span>
+            от <PriceText>20 360 &#8381;</PriceText>
           </Price>
-          <Date>Осталось 19 дней</Date>
+          <DateText>Осталось 19 дней</DateText>
         </div>
       </Head>
       <main>
@@ -227,7 +227,7 @@ const SpecialOffers = () => (
 
       <Footer>
         <Link href="#">Смотреть все спецпредложения</Link>
-        <p>* средняя цена по направлению</p>
+        <FooterText>* средняя цена по направлению</FooterText>
       </Footer>
     </div>
   </Container>

@@ -65,9 +65,10 @@ const LegalLink = Link.extend`
 const SocialLink = Link.extend`
   display: inline-block;
   margin-right: 5px;
-  & img {
-    margin-right: 5px;
-  }
+`;
+
+const SocialIcon = styled.img`
+  margin-right: 5px;
 `;
 
 const Download = styled.div`
@@ -181,7 +182,7 @@ const Footer = () => (
         <div className="col-xs-4">
           <SocialLink href="#">
             <picture>
-              <img src={vkontakte} srcSet={`${vkontakte2x} 2x`} alt="" />
+              <SocialIcon src={vkontakte} srcSet={`${vkontakte2x} 2x`} alt="" />
             </picture>
             Вконтакте
           </SocialLink>
@@ -189,7 +190,7 @@ const Footer = () => (
         <div className="col-xs-4">
           <SocialLink href="#">
             <picture>
-              <img src={facebook} srcSet={`${facebook2x} 2x`} alt="" />
+              <SocialIcon src={facebook} srcSet={`${facebook2x} 2x`} alt="" />
             </picture>
             Фейсбук
           </SocialLink>
@@ -197,7 +198,7 @@ const Footer = () => (
         <div className="col-xs-4">
           <SocialLink href="#">
             <picture>
-              <img src={instagram} srcSet={`${instagram2x} 2x`} alt="" />
+              <SocialIcon src={instagram} srcSet={`${instagram2x} 2x`} alt="" />
             </picture>
             Инстаграм
           </SocialLink>
@@ -205,7 +206,7 @@ const Footer = () => (
         <div className="col-xs-4">
           <SocialLink href="#">
             <picture>
-              <img src={twitter} srcSet={`${twitter2x} 2x`} alt="" />
+              <SocialIcon src={twitter} srcSet={`${twitter2x} 2x`} alt="" />
             </picture>
             Твиттер
           </SocialLink>
@@ -213,7 +214,7 @@ const Footer = () => (
         <div className="col-xs-4">
           <SocialLink href="#">
             <picture>
-              <img src={viber} srcSet={`${viber2x} 2x`} alt="" />
+              <SocialIcon src={viber} srcSet={`${viber2x} 2x`} alt="" />
             </picture>
             Вайбер
           </SocialLink>

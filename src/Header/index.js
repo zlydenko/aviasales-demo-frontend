@@ -62,15 +62,15 @@ const DateInput = styled.div`
   width: calc((100%/2) - 1px);
   cursor: pointer;
 
-  & img {
-    position: absolute;
-    right: 16px;
-    top: 15px;
-  }
-
   &:nth-child(2n) {
     margin-right: 2px;
   }
+`;
+
+const CalendarIcon = styled.img`
+  position: absolute;
+  right: 16px;
+  top: 15px;
 `;
 
 const PassengersDropdown = styled.div`
@@ -84,12 +84,12 @@ const PassengersDropdown = styled.div`
   border-bottom-right-radius: 5px;
   position: relative;
   cursor: pointer;
+`;
 
-  & img {
-    position: absolute;
-    right: 16px;
-    top: 23px;
-  }
+const ArrowIcon = styled.img`
+  position: absolute;
+  right: 16px;
+  top: 23px;
 `;
 
 const SearchForm = styled.form`
@@ -115,10 +115,6 @@ const SearchBtn = Btn.extend`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  & span {
-    margin-right: 16px;
-  }
 `;
 
 const DepartureAbbr = styled.label`
@@ -155,6 +151,10 @@ const TicketClassText = styled.span`
   color: #a0b0b9;
 `;
 
+const PlaneIcon = styled.img`
+  margin-left: 16px;
+`;
+
 export default class Header extends Component {
   render() {
     return (
@@ -179,20 +179,20 @@ export default class Header extends Component {
                 <Input type="text" placeholder="Город прибытия" />
                 <DateInput>
                   <span>Туда</span>
-                  <img src={calendarIcon} alt="" />
+                  <CalendarIcon src={calendarIcon} alt="" />
                 </DateInput>
                 <DateInput>
                   <span>Обратно</span>
-                  <img src={calendarIcon} alt="" />
+                  <CalendarIcon src={calendarIcon} alt="" />
                 </DateInput>
                 <PassengersDropdown>
                   <QuantityText>1 пассажир</QuantityText>
                   <TicketClassText>эконом</TicketClassText>
-                  <img src={dropdownArrow} alt="" />
+                  <ArrowIcon src={dropdownArrow} alt="" />
                 </PassengersDropdown>
                 <SearchBtn>
                   <span>Найти билеты</span>
-                  <img src={aero} alt="aeroplane icon" />
+                  <PlaneIcon src={aero} alt="aeroplane icon" />
                 </SearchBtn>
               </SearchForm>
             </div>
