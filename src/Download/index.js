@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import star from "./star.svg";
-import starbg from "./starbg.svg";
 import phone from "./phone.png";
 import apple from "./apple.svg";
 import android from "./android.svg";
