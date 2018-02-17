@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import pobedaIcon from "./airlines-icons/pobeda.png";
 import lufthansaIcon from "./airlines-icons/lufthansa.png";
+import pobedaIcon2x from "./airlines-icons/pobeda2x.png";
+import lufthansaIcon2x from "./airlines-icons/lufthansa2x.png";
 import starAllianceIcon from "./airlines-icons/staralliance.svg";
 
 const Container = styled.section`
@@ -127,7 +129,9 @@ const PobedaCard = () => (
     </Header>
     <Main>
       <Head>
-        <AirlineIcon src={pobedaIcon} alt="" />
+        <picture>
+          <AirlineIcon src={pobedaIcon} srcSet={`${pobedaIcon2x} 2x`} alt="" />
+        </picture>
         <div>
           <Price>
             от <span>499 &#8381;</span>
@@ -154,7 +158,13 @@ const LufthansaNYCard = () => (
     </Header>
     <Main>
       <Head>
-        <AirlineIcon src={lufthansaIcon} alt="" />
+        <picture>
+          <AirlineIcon
+            src={lufthansaIcon}
+            srcSet={`${lufthansaIcon2x} 2x`}
+            alt=""
+          />
+        </picture>
         <div>
           <Price>
             от <span>20 680 &#8381;</span>
@@ -181,7 +191,13 @@ const LufthansaLACard = () => (
     </Header>
     <Main>
       <Head>
-        <AirlineIcon src={lufthansaIcon} alt="" />
+        <picture>
+          <AirlineIcon
+            src={lufthansaIcon}
+            srcSet={`${lufthansaIcon2x} 2x`}
+            alt=""
+          />
+        </picture>
         <div>
           <Price>
             от <span>20 360 &#8381;</span>

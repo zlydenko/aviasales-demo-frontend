@@ -4,6 +4,9 @@ import calendar from "./calendar.svg";
 import ruFlag from "./flags/ru.png";
 import amFlag from "./flags/am.png";
 import mdFlag from "./flags/md.png";
+import ruFlag2x from "./flags/ru2x.png";
+import amFlag2x from "./flags/am2x.png";
+import mdFlag2x from "./flags/md2x.png";
 
 const Container = styled.section`
   background: linear-gradient(180deg, #f8fcff 0%, #ffffff 100%);
@@ -99,7 +102,9 @@ const Card = styled.div`
 const SimferopolCard = () => (
   <Card>
     <Header>
-      <Flag src={ruFlag} />
+      <picture>
+        <Flag src={ruFlag} srcSet={`${ruFlag2x} 2x`} />
+      </picture>
       <div>
         <DestinationTitle>Симферополь (Крым)</DestinationTitle>
         <Country>Крым</Country>
@@ -133,7 +138,9 @@ const SimferopolCard = () => (
 const ErevanCard = () => (
   <Card>
     <Header>
-      <Flag src={amFlag} />
+      <picture>
+        <Flag src={amFlag} srcSet={`${amFlag2x} 2x`} />
+      </picture>
       <div>
         <DestinationTitle>Ереван</DestinationTitle>
         <Country>Армения</Country>
@@ -167,7 +174,9 @@ const ErevanCard = () => (
 const ChinesauCard = () => (
   <Card>
     <Header>
-      <Flag src={mdFlag} />
+      <picture>
+        <Flag src={mdFlag} srcSet={`${mdFlag2x} 2x`} />
+      </picture>
       <div>
         <DestinationTitle>Кишинёв</DestinationTitle>
         <Country>Молдавия</Country>

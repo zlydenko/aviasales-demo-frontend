@@ -1,15 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
-import appStore from "./apple.svg";
-import googlePlay from "./android.svg";
-import winPhone from "./win.svg";
+import appStore from "./apple.png";
+import appStore2x from "./apple2x.png";
+import googlePlay from "./android.png";
+import googlePlay2x from "./android2x.png";
+import winPhone from "./win.png";
+import winPhone2x from "./win2x.png";
 
-import vkontakte from "./vk.svg";
-import facebook from "./fb.svg";
-import instagram from "./instagram.svg";
-import twitter from "./twi.svg";
-import viber from "./viber.svg";
+import vkontakte from "./vkontakte.png";
+import facebook from "./facebook.png";
+import instagram from "./instagram.png";
+import twitter from "./twitter.png";
+import viber from "./viber.png";
+import vkontakte2x from "./vkontakte2x.png";
+import facebook2x from "./facebook2x.png";
+import instagram2x from "./instagram2x.png";
+import twitter2x from "./twitter2x.png";
+import viber2x from "./viber2x.png";
 
 const Title = styled.h2`
   margin: 0px;
@@ -64,38 +72,6 @@ const SocialLink = Link.extend`
 
 const Download = styled.div`
   margin-top: 24px;
-`;
-
-const DownloadBtn = styled.button`
-  width: 125px;
-  height: 42px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  padding-right: 12px;
-  padding-left: 12px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 8px;
-  background-color: #1e292d;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  text-align: left;
-
-  & p {
-    margin: 0px;
-    font-size: 9px;
-    line-height: 15px;
-  }
-`;
-
-const StoreName = styled.p`
-  font-size: 12px;
-  line-height: 15px;
-  font-weight: 900;
 `;
 
 const LegalInfo = styled.p`
@@ -204,31 +180,41 @@ const Footer = () => (
       <div className="row">
         <div className="col-xs-4">
           <SocialLink href="#">
-            <img src={vkontakte} alt="" />
+            <picture>
+              <img src={vkontakte} srcSet={`${vkontakte2x} 2x`} alt="" />
+            </picture>
             Вконтакте
           </SocialLink>
         </div>
         <div className="col-xs-4">
           <SocialLink href="#">
-            <img src={facebook} alt="" />
+            <picture>
+              <img src={facebook} srcSet={`${facebook2x} 2x`} alt="" />
+            </picture>
             Фейсбук
           </SocialLink>
         </div>
         <div className="col-xs-4">
           <SocialLink href="#">
-            <img src={instagram} alt="" />
+            <picture>
+              <img src={instagram} srcSet={`${instagram2x} 2x`} alt="" />
+            </picture>
             Инстаграм
           </SocialLink>
         </div>
         <div className="col-xs-4">
           <SocialLink href="#">
-            <img src={twitter} alt="" />
+            <picture>
+              <img src={twitter} srcSet={`${twitter2x} 2x`} alt="" />
+            </picture>
             Твиттер
           </SocialLink>
         </div>
         <div className="col-xs-4">
           <SocialLink href="#">
-            <img src={viber} alt="" />
+            <picture>
+              <img src={viber} srcSet={`${viber2x} 2x`} alt="" />
+            </picture>
             Вайбер
           </SocialLink>
         </div>
@@ -240,31 +226,19 @@ const Footer = () => (
           <Link href="#">Поиск и бронирование отелей</Link>
         </div>
         <div className="col-xs-12">
-          <DownloadBtn>
-            <img src={appStore} alt="" />
-            <div>
-              <p>Скачайте в</p>
-              <StoreName>App Store</StoreName>
-            </div>
-          </DownloadBtn>
+          <picture>
+            <img src={appStore} srcSet={`${appStore2x} 2x`} alt="" />
+          </picture>
         </div>
         <div className="col-xs-12">
-          <DownloadBtn>
-            <img src={googlePlay} alt="" />
-            <div>
-              <p>Скачайте в</p>
-              <StoreName>Google Play</StoreName>
-            </div>
-          </DownloadBtn>
+          <picture>
+            <img src={googlePlay} srcSet={`${googlePlay2x} 2x`} alt="" />
+          </picture>
         </div>
         <div className="col-xs-12">
-          <DownloadBtn>
-            <img src={winPhone} alt="" />
-            <div>
-              <StoreName>Windows</StoreName>
-              <StoreName>Phone</StoreName>
-            </div>
-          </DownloadBtn>
+          <picture>
+            <img src={winPhone} srcSet={`${winPhone2x} 2x`} alt="" />
+          </picture>
         </div>
         <div className="col-xs-12">
           <LegalInfo>© 2007–2018, Aviasales — дешевые авиабилеты</LegalInfo>

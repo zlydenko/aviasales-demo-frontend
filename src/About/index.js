@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import planeIcon from "./plane.svg";
-import emailIcon from "./email.svg";
-import listIcon from "./list.svg";
+import planeIcon from "./plane.png";
+import emailIcon from "./email.png";
+import listIcon from "./list.png";
+import planeIcon2x from "./plane2x.png";
+import emailIcon2x from "./email2x.png";
+import listIcon2x from "./list2x.png";
 
 const Container = styled.section`
   padding-top: 20px;
@@ -50,7 +53,9 @@ const About = () => (
     <div className="container">
       <Card>
         <Title>
-          <img src={planeIcon} alt="" />
+          <picture>
+            <img src={planeIcon} srcSet={`${planeIcon2x} 2x`} alt="" />
+          </picture>
           как купить дешевые авиабилеты?
         </Title>
         <p>
@@ -68,7 +73,9 @@ const About = () => (
       </Card>
       <Card>
         <Title>
-          <img src={emailIcon} alt="" />
+          <picture>
+            <img src={emailIcon} srcSet={`${emailIcon2x} 2x`} alt="" />
+          </picture>
           электронный авиабилет
         </Title>
         <p>
@@ -89,7 +96,9 @@ const About = () => (
       </Card>
       <Card>
         <Title>
-          <img src={listIcon} alt="" />
+          <picture>
+            <img src={listIcon} srcSet={`${listIcon2x} 2x`} alt="" />
+          </picture>
           20 советов авиапутешественникам
         </Title>
         <p>
