@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import star from "./star.svg";
+import rating from "./rating.png";
+import rating2x from "./rating2x.png";
 import phone from "./phone.png";
-import apple from "./apple.svg";
-import android from "./android.svg";
-import win from "./win.svg";
+import phone2x from "./phone2x.png";
+import apple from "./apple.png";
+import android from "./android.png";
+import win from "./win.png";
+import apple2x from "./apple2x.png";
+import android2x from "./android2x.png";
+import win2x from "./win2x.png";
 
 const Container = styled.section`
   padding-top: 24px;
@@ -71,11 +76,13 @@ const Download = () => (
     <div className="row center-xs">
       <div className="col-xs-10">
         <Rating>
-          <img src={star} alt="" />
-          <img src={star} alt="" />
-          <img src={star} alt="" />
-          <img src={star} alt="" />
-          <img src={star} alt="" />
+          <picture>
+            <img
+              src={rating}
+              srcSet={`${rating2x} 2x`}
+              alt="aviasales app rating"
+            />
+          </picture>
           <RatingText>Более 103 000 оценок</RatingText>
         </Rating>
       </div>
@@ -83,20 +90,28 @@ const Download = () => (
     <DownloadLinks>
       <div className="row">
         <div className="col-xs-6">
-          <PhoneIcon src={phone} alt="" />
+          <picture>
+            <img src={phone} srcSet={`${phone2x} 2x`} alt="" />
+          </picture>
         </div>
         <div className="col-xs-6">
           <Links>
             <Link>
-              <PhoneIcon src={apple} alt="" />
+              <picture>
+                <PhoneIcon src={apple} srcSet={`${apple2x} 2x`} alt="" />
+              </picture>
               <span>iPhone или iPad</span>
             </Link>
             <Link>
-              <PhoneIcon src={android} alt="" />
+              <picture>
+                <PhoneIcon src={android} srcSet={`${android2x} 2x`} alt="" />
+              </picture>
               <span>Android</span>
             </Link>
             <Link>
-              <PhoneIcon src={win} alt="" />
+              <picture>
+                <PhoneIcon src={win} srcSet={`${win2x} 2x`} alt="" />
+              </picture>
               <span>Windows Phone</span>
             </Link>
           </Links>
