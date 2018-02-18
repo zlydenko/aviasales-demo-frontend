@@ -83,6 +83,7 @@ const City = styled.p`
 `;
 
 const Country = styled.p`
+  margin-top: 2px;
   font-size: 12px;
   line-height: 20px;
   color: #a0b0b9;
@@ -111,6 +112,7 @@ const Link = styled.a`
 `;
 
 const DateText = styled.p`
+  margin-top: 2px;
   font-size: 12px;
   line-height: 20px;
   color: #a0b0b9;
