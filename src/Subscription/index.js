@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import mailpatterntablet from "./mailpatterntablet.png";
-import mailpatterntablet2x from "./mailpatterntablet2x.png";
-import mailpatterndesktop from "./mailpatterndesktop.png";
-import mailpatterndesktop2x from "./mailpatterndesktop2x.png";
+import pattern from "./pattern.png";
 import twitter from "./twitter.png";
 import twitter2x from "./twitter2x.png";
 import vkontakte from "./vkontakte.png";
@@ -15,21 +12,25 @@ import facebook2x from "./facebook2x.png";
 
 const Subscription = styled.section`
   display: none;
+  position: relative;
 
   @media (min-width: 768px) {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    padding-bottom: 61px;
-  }
-
-  @media (min-width: 1200px) {
-    flex-direction: row;
-    padding-bottom: 24px;
+    display: block;
   }
 `;
 
-const Title = styled.h2`
+const MailPattern = styled.div`
+  content: "";
+  display: block;
+  background: #fff repeat-x url(${pattern}) 50% 0;
+  height: 7px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+`;
+
+const Title = styled.h3`
   margin: 0px;
   font-size: 16px;
   line-height: 20px;
@@ -39,8 +40,10 @@ const Title = styled.h2`
     text-align: left;
   }
 `;
+
 const Text = styled.p`
   margin: 0px;
+  margin-top: 4px;
   font-size: 16px;
   line-height: 22px;
   text-align: center;
@@ -53,6 +56,11 @@ const Text = styled.p`
 const Image = styled.img`
   width: 36px;
   height: 36px;
+  margin-right: 8px;
+
+  &:last-child {
+    margin-right: 0px;
+  }
 `;
 
 const Button = styled.button`
@@ -68,56 +76,88 @@ const Button = styled.button`
 const SocialIcons = styled.div`
   display: flex;
   justify-content: center;
+
+  @media (min-width: 1200px) {
+    margin-right: 16px;
+  }
 `;
 
 const Info = styled.div`
-  margin-right: 160px;
+  margin-top: 32px;
+  margin-bottom: 20px;
+
+  @media (min-width: 1200px) {
+    margin-right: 170px;
+  }
 `;
 
-const Form = styled.div``;
-const Email = styled.form``;
-const Input = styled.input``;
+const Form = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+
+  @media (min-width: 1200px) {
+    margin-top: 0px;
+  }
+`;
+
+const Email = styled.form`
+  padding-bottom: 61px;
+
+  @media (min-width: 1200px) {
+    padding-bottom: 0px;
+    display: flex;
+  }
+`;
+
+const Input = styled.input`
+  padding: 6px 9px 6px 13px;
+  line-height: 20px;
+
+  @media (min-width: 1200px) {
+    width: 100%;
+  }
+`;
+
+const Wrapper = styled.div`
+  @media (min-width: 1200px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
 
 export default () => {
   return (
-    <div className="row center-md">
-      <div className="col-md-6 col-lg-10">
-        <Subscription>
-          <picture>
-            <source
-              media="(min-width:768px)"
-              src={mailpatterntablet}
-              srcSet={`${mailpatterntablet2x} 2x`}
-              alt=""
-            />
-            <source
-              media="(min-width:1440px)"
-              src={mailpatterndesktop}
-              srcSet={`${mailpatterndesktop2x} 2x`}
-              alt=""
-            />
-          </picture>
-          <Info>
-            <Title>Хотите знать всё о скидках на авиабилеты?</Title>
-            <Text>
-              Вы можете подписаться на нашу рассылку через соцсети или по
-              электронной почте.
-            </Text>
-          </Info>
-          <SocialIcons>
-            <Image src={twitter} srcSet={`${twitter2x} 2x`} alt="" />
-            <Image src={facebook} srcSet={`${facebook2x} 2x`} alt="" />
-            <Image src={vkontakte} srcSet={`${vkontakte2x} 2x`} alt="" />
-            <Image src={RSS} srcSet={`${RSS2x} 2x`} alt="" />
-          </SocialIcons>
-          <Form>
-            <Email>
-              <Input type="email" />
-              <Button>Подписаться</Button>
-            </Email>
-          </Form>
-        </Subscription>
+    <Subscription>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-offset-3 col-md-6 col-xl-offset-1 col-xl-10">
+            <MailPattern />
+            <Wrapper>
+              <Info>
+                <Title>Хотите знать всё о скидках на авиабилеты?</Title>
+                <Text>
+                  Вы можете подписаться на нашу рассылку через соцсети или по
+                  электронной почте.
+                </Text>
+              </Info>
+              <SocialIcons>
+                <Image src={twitter} srcSet={`${twitter2x} 2x`} alt="" />
+                <Image src={facebook} srcSet={`${facebook2x} 2x`} alt="" />
+                <Image src={vkontakte} srcSet={`${vkontakte2x} 2x`} alt="" />
+                <Image src={RSS} srcSet={`${RSS2x} 2x`} alt="" />
+              </SocialIcons>
+              <Form>
+                <Email>
+                  <Input type="email" placeholder="Ваш email" />
+                  <Button>Подписаться</Button>
+                </Email>
+              </Form>
+            </Wrapper>
+          </div>
+        </div>
       </div>
-    </div>
+    </Subscription>
   );
 };
