@@ -1,126 +1,167 @@
 import React from "react";
 import styled from "styled-components";
-import rating from "./rating.png";
-import rating2x from "./rating2x.png";
-import phone from "./phone.png";
-import phone2x from "./phone2x.png";
 import apple from "./apple.png";
+import windows from "./win.png";
 import android from "./android.png";
-import win from "./win.png";
-import apple2x from "./apple2x.png";
-import android2x from "./android2x.png";
-import win2x from "./win2x.png";
+import phone from "./phone.png";
+import phone_md from "./phone_md.png";
+import rating from "./rating.png";
 
-const Container = styled.section`
-  padding-top: 24px;
-  color: #fff;
-  background: linear-gradient(137.4deg, #00b0de 4.18%, #196ebd 104.18%);
+const Section = styled.section`
+  background: linear-gradient(to bottom, #00b0de 0%, #196ebd 100%);
+  margin-top: 24px;
+  text-align: center;
+  @media (min-width: 768px) {
+    margin-top: 48px;
+  }
+  @media (min-width: 1200px) {
+    margin-top: 40px;
+  }
 `;
 
 const Title = styled.h2`
-  margin: 0px;
-  margin-bottom: 19px;
+  color: #ffffff;
   font-size: 24px;
-  line-height: 28px;
-  text-align: center;
   font-weight: 500;
+  padding-top: 24px;
+  line-height: 28px;
+  margin: 0px;
+  @media (min-width: 768px) {
+    padding-top: 46px;
+    text-align: left;
+  }
+  @media (min-width: 992px) {
+    padding-top: 66px;
+  }
+`;
+
+const Text = styled.p`
+  color: #ffffff;
+  padding-left: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0px;
+`;
+
+const Os = Text.extend`
+  margin: 0px;
+  line-height: 25px;
+`;
+
+const Image = styled.img``;
+
+const Stars = Image.extend`
+  margin-bottom: 1px;
+`;
+
+const Phone = Image.extend`
+  height: 213px;
+  width: 162px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  @media screen and (min-width: 768px) {
+    height: 312px;
+    width: 237px;
+  }
 `;
 
 const Rating = styled.div`
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-`;
-
-const RatingText = styled.span`
-  color: #fff;
-  font-size: 14px;
-  line-height: 20px;
-  margin-left: 8px;
-`;
-
-const DownloadLinks = styled.div`
-  margin-top: 15px;
-`;
-
-const Phone = styled.img`
-  transform: translateY(4px);
-`;
-
-const Link = styled.a`
-  color: #fff;
-  font-size: 14px;
-  line-height: 25px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-
-  &:last-child {
-    margin-bottom: 0px;
+  margin-top: 13px;
+  @media (min-width: 768px) {
+    justify-content: flex-start;
   }
 `;
 
-const PhoneIcon = styled.img`
-  margin-right: 8px;
-`;
-
 const Links = styled.div`
+  padding-top: 56px;
+  padding-bottom: 37px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    padding-bottom: 51px;
+    padding-top: 40px;
+  }
+  @media (min-width: 992px) {
+    padding-top: 43px;
+    padding-bottom: 65px;
+  }
 `;
 
-const Download = () => (
-  <Container>
-    <Title>Скачай мобильное приложение Aviasales.ru</Title>
-    <div className="row center-xs">
-      <div className="col-xs-10">
-        <Rating>
-          <picture>
-            <img
-              src={rating}
-              srcSet={`${rating2x} 2x`}
-              alt="aviasales app rating"
-            />
-          </picture>
-          <RatingText>Более 103 000 оценок</RatingText>
-        </Rating>
-      </div>
-    </div>
-    <DownloadLinks>
-      <div className="row">
-        <div className="col-xs-6">
-          <picture>
-            <Phone src={phone} srcSet={`${phone2x} 2x`} alt="" />
-          </picture>
-        </div>
-        <div className="col-xs-6">
-          <Links>
-            <Link>
-              <picture>
-                <PhoneIcon src={apple} srcSet={`${apple2x} 2x`} alt="" />
-              </picture>
-              <span>iPhone или iPad</span>
-            </Link>
-            <Link>
-              <picture>
-                <PhoneIcon src={android} srcSet={`${android2x} 2x`} alt="" />
-              </picture>
-              <span>Android</span>
-            </Link>
-            <Link>
-              <picture>
-                <PhoneIcon src={win} srcSet={`${win2x} 2x`} alt="" />
-              </picture>
-              <span>Windows Phone</span>
-            </Link>
-          </Links>
-        </div>
-      </div>
-    </DownloadLinks>
-  </Container>
-);
+const Link = styled.button`
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  @media (min-width: 768px) {
+    padding: 0px 16px;
+    &:first-child {
+      padding-left: 0px;
+    }
+  }
+`;
 
-export default Download;
+const LinkWithBorder = Link.extend`
+  @media (min-width: 768px) {
+    border-left: 1px solid #ffffff50;
+    border-right: 1px solid #ffffff50;
+  }
+`;
+
+const MobileApp = styled.div`
+  height: 100%;
+  position: relative;
+`;
+
+export default function() {
+  return (
+    <Section>
+      <div className="container">
+        <div className="row center-xs left-md">
+          <div className="col-xs-12 col-md col-md-offset-4">
+            <Title>Скачай мобильное приложение Aviasales.ru</Title>
+            <Rating>
+              <Stars src={rating} alt="Рейтинг" />
+              <Text>Более 103 000 оценок</Text>
+            </Rating>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-6 col-md-4 col-xl-3 col-xl-offset-1">
+            <MobileApp>
+              <picture>
+                <source srcSet={phone_md} media="(min-width: 768px)" />
+                <Phone src={phone} alt="Iphone" />
+              </picture>
+            </MobileApp>
+          </div>
+          <div className="col-xs-6 col-md-8 col-xl">
+            <Links>
+              <Link>
+                <Image src={apple} alt="iOS" />
+                <Os>iPhone или iPad</Os>
+              </Link>
+              <LinkWithBorder>
+                <Image src={android} alt="Android" />
+                <Os>Android</Os>
+              </LinkWithBorder>
+              <Link>
+                <Image src={windows} alt="Windows Phone" />
+                <Os>Windows Phone</Os>
+              </Link>
+            </Links>
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
+}
