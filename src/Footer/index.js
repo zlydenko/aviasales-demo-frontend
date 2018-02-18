@@ -63,7 +63,9 @@ const LegalLink = Link.extend`
 `;
 
 const SocialLink = Link.extend`
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 5px;
 `;
 
@@ -83,11 +85,48 @@ const LegalInfo = styled.p`
   color: #5b5b5c;
 `;
 
+const Img = styled.img`
+  @media (min-width: 768px) {
+    margin-right: 8px;
+  }
+`;
+
+const About = styled.div`
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 1200px) {
+    padding-top: 40px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`;
+
+const LegalLinks = styled.div`
+  @media (min-width: 768px) {
+    text-align: left;
+  }
+`;
+
+const Nav = styled.div`
+  text-align: left;
+`;
+
+const Text = styled.p`
+  display: inline;
+`;
+
+const SocialLinks = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
 const Footer = () => (
   <div className="container">
     <Links>
       <div className="row">
-        <div className="col-xs-6">
+        <div className="col-xs-6 col-md-3 col-lg-2">
           <LinkList>
             <Title>Страны</Title>
             <Link href="#">Россия</Link>
@@ -99,7 +138,7 @@ const Footer = () => (
             <MoreLink href="#">Все страны →</MoreLink>
           </LinkList>
         </div>
-        <div className="col-xs-6">
+        <div className="col-xs-6 col-md-3 col-lg-2">
           <LinkList>
             <Title>Города</Title>
             <Link href="#">Москва</Link>
@@ -111,7 +150,7 @@ const Footer = () => (
             <MoreLink href="#">Все города →</MoreLink>
           </LinkList>
         </div>
-        <div className="col-xs-6">
+        <div className="col-xs-6 col-md-3 col-lg-2">
           <LinkList>
             <Title>Авиакомпании</Title>
             <Link href="#">Air Berlin</Link>
@@ -123,7 +162,7 @@ const Footer = () => (
             <MoreLink href="#">Все авиакомпании →</MoreLink>
           </LinkList>
         </div>
-        <div className="col-xs-6">
+        <div className="col-xs-6 col-md-3 col-lg-2">
           <LinkList>
             <Title>Аэропорты</Title>
             <Link href="#">Шереметьево</Link>
@@ -135,7 +174,7 @@ const Footer = () => (
             <MoreLink href="#">Все аэропорты →</MoreLink>
           </LinkList>
         </div>
-        <div className="col-xs-6">
+        <div className="col-xs-6 col-md-3 col-lg-2">
           <LinkList>
             <Title>Направления</Title>
             <Link href="#">MOW – SIP</Link>
@@ -146,7 +185,7 @@ const Footer = () => (
             <Link href="#">MOW – BKK</Link>
           </LinkList>
         </div>
-        <div className="col-xs-6">
+        <div className="col-xs-6 col-md-3 col-lg-2">
           <LinkList>
             <Title>Сервисы</Title>
             <Link href="#">Горящие авиабилеты</Link>
@@ -160,98 +199,78 @@ const Footer = () => (
         </div>
       </div>
     </Links>
-    <div>
-      <div className="row">
-        <div className="col-xs-12">
+    <About>
+      <LegalLinks>
+        <Nav>
           <LegalLink href="#">О компании</LegalLink>
           <LegalLink href="#">Партнёрская программа</LegalLink>
-        </div>
-        <div className="col-xs-12">
           <LegalLink href="#">Реклама</LegalLink>
           <LegalLink href="#">Вакансии</LegalLink>
           <LegalLink href="#">Помощь</LegalLink>
           <LegalLink href="#">Правила</LegalLink>
-        </div>
-        <div className="col-xs-12">
           <LegalLink href="#">White Label авиабилеты</LegalLink>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div className="row">
-        <div className="col-xs-4">
+        </Nav>
+        <SocialLinks>
           <SocialLink href="#">
             <picture>
               <SocialIcon src={vkontakte} srcSet={`${vkontakte2x} 2x`} alt="" />
             </picture>
-            Вконтакте
+            <Text>Вконтакте</Text>
           </SocialLink>
-        </div>
-        <div className="col-xs-4">
+
           <SocialLink href="#">
             <picture>
               <SocialIcon src={facebook} srcSet={`${facebook2x} 2x`} alt="" />
             </picture>
-            Фейсбук
+            <Text>Фейсбук</Text>
           </SocialLink>
-        </div>
-        <div className="col-xs-4">
+
           <SocialLink href="#">
             <picture>
               <SocialIcon src={instagram} srcSet={`${instagram2x} 2x`} alt="" />
             </picture>
-            Инстаграм
+            <Text>Инстаграм</Text>
           </SocialLink>
-        </div>
-        <div className="col-xs-4">
           <SocialLink href="#">
             <picture>
               <SocialIcon src={twitter} srcSet={`${twitter2x} 2x`} alt="" />
             </picture>
-            Твиттер
+            <Text>Твиттер</Text>
           </SocialLink>
-        </div>
-        <div className="col-xs-4">
           <SocialLink href="#">
             <picture>
               <SocialIcon src={viber} srcSet={`${viber2x} 2x`} alt="" />
             </picture>
-            Вайбер
+            <Text>Вайбер</Text>
           </SocialLink>
-        </div>
-      </div>
-    </div>
-    <Download>
-      <div className="row center-xs">
-        <div className="col-xs-12">
+        </SocialLinks>
+        <Text>
           <Link href="#">Поиск и бронирование отелей</Link>
-        </div>
-        <div className="col-xs-12">
+        </Text>
+      </LegalLinks>
+      <LegalLinks>
+        <Download>
           <a href="#">
             <picture>
-              <img src={appStore} srcSet={`${appStore2x} 2x`} alt="" />
+              <Img src={appStore} srcSet={`${appStore2x} 2x`} alt="" />
             </picture>
           </a>
-        </div>
-        <div className="col-xs-12">
           <a href="#">
             <picture>
-              <img src={googlePlay} srcSet={`${googlePlay2x} 2x`} alt="" />
+              <Img src={googlePlay} srcSet={`${googlePlay2x} 2x`} alt="" />
             </picture>
           </a>
-        </div>
-        <div className="col-xs-12">
           <a href="#">
             <picture>
-              <img src={winPhone} srcSet={`${winPhone2x} 2x`} alt="" />
+              <Img src={winPhone} srcSet={`${winPhone2x} 2x`} alt="" />
             </picture>
           </a>
-        </div>
-        <div className="col-xs-12">
+        </Download>
+        <Text>
           <LegalInfo>© 2007–2018, Aviasales — дешевые авиабилеты</LegalInfo>
-        </div>
-      </div>
-    </Download>
+        </Text>
+      </LegalLinks>
+    </About>
   </div>
 );
 
