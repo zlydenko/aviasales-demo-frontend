@@ -29,6 +29,7 @@ const Image = styled.img`
   width: 149px;
   object-fit: cover;
   margin-right: 32px;
+  margin-bottom: 8px;
 
   @media (min-width: 1200px) {
     margin-right: 20px;
