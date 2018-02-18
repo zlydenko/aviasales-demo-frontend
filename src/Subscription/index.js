@@ -92,6 +92,7 @@ const Info = styled.div`
 `;
 
 const Form = styled.div`
+  width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 24px;
@@ -132,7 +133,7 @@ export default () => {
     <Subscription>
       <div className="container">
         <div className="row">
-          <div className="col-md-offset-3 col-md-6 col-xl-offset-1 col-xl-10">
+          <div className="col-md-offset-3 col-md-6 col-xl-offset-1 col-xl-11">
             <MailPattern />
             <Wrapper>
               <Info>
