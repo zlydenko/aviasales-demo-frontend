@@ -250,17 +250,17 @@ const Footer = () => (
       </LegalLinks>
       <LegalLinks>
         <Download>
-          <a href="#">
+          <a href="./">
             <picture>
               <Img src={appStore} srcSet={`${appStore2x} 2x`} alt="" />
             </picture>
           </a>
-          <a href="#">
+          <a href="./">
             <picture>
               <Img src={googlePlay} srcSet={`${googlePlay2x} 2x`} alt="" />
             </picture>
           </a>
-          <a href="#">
+          <a href="./">
             <picture>
               <Img src={winPhone} srcSet={`${winPhone2x} 2x`} alt="" />
             </picture>
