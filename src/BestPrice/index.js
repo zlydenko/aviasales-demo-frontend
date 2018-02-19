@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import calendar from "./calendar.svg";
-import ruFlag from "./flags/ru.png";
-import amFlag from "./flags/am.png";
-import mdFlag from "./flags/md.png";
-import ruFlag2x from "./flags/ru2x.png";
-import amFlag2x from "./flags/am2x.png";
-import mdFlag2x from "./flags/md2x.png";
+import ruFlag from "./ru.png";
+import amFlag from "./am.png";
+import mdFlag from "./md.png";
+import ruFlag2x from "./ru2x.png";
+import amFlag2x from "./am2x.png";
+import mdFlag2x from "./md2x.png";
 
 const CalendarIcon = styled.div`
   width: 64px;
