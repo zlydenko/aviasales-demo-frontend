@@ -32,7 +32,7 @@ const EditDate = () => (
   </ActionButton>
 );
 
-const Search = () => (
+export default () => (
   <Layout>
     <Inputs>
       <DepartureCity>
@@ -93,5 +93,3 @@ const Search = () => (
     </Inputs>
   </Layout>
 );
-
-export default Search;

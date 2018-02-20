@@ -5,7 +5,8 @@ import "flexboxgrid2";
 import "./index.css";
 import registerServiceWorker from "./registerServiceWorker";
 
-import App from "./App";
+import MainPage from "./MainPage";
+import Search from "./SearchPage";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<Search />, document.getElementById("root"));
 registerServiceWorker();
