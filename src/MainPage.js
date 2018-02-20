@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Header from "./Header";
 import PopularDestinations from "./PopularDestinations";
 import BestPrice from "./BestPrice";
@@ -9,7 +9,7 @@ import About from "./About";
 import Download from "./Download";
 import Footer from "./Footer";
 
-export default class App extends Component {
+export default class MainPage extends React.Component {
   render() {
     return (
       <div>
