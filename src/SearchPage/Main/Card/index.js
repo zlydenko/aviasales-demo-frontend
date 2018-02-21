@@ -4,13 +4,15 @@ import {
   Header,
   Text,
   Price,
-  Airlines,
   Destination,
-  Icon
+  Icon,
+  CheepestTicket,
+  FastestTicket,
+  BestTicket,
+  BigLogo,
+  SmallLogo
 } from "./styled";
 
-import rossiyaAirlines from "./logo/rossiya.png";
-import rossiyaAirlines2x from "./logo/rossiya2x.png";
 import departure from "./departure.svg";
 import arrival from "./arrival.svg";
 import clock from "./clock.svg";
@@ -19,47 +21,76 @@ const DepartureIcon = () => <Icon src={departure} alt="" />;
 const ArrivalIcon = () => <Icon src={arrival} alt="" />;
 const ClockIcon = () => <Icon src={clock} alt="" />;
 
-export default () => (
-  <Card>
-    <Header>
-      <Price>7 712 ₽</Price>
-      <picture>
-        <Airlines
-          src={rossiyaAirlines}
-          srcSet={`${rossiyaAirlines2x} 2x`}
-          alt=""
-        />
-      </picture>
-    </Header>
-    <Destination>
-      <div className="row">
-        <div className="col-xs-5">
-          <DepartureIcon />
-          <Text>00:05 — 03:05</Text>
+export default props => (
+  <div>
+    {props.cheepest && (
+      <CheepestTicket>
+        Самый дешевый{" "}
+        <span role="img" aria-label="самый дешевый билет">
+          🤑
+        </span>
+      </CheepestTicket>
+    )}
+    {props.fastest && (
+      <FastestTicket>
+        Самый быстрый{" "}
+        <span role="img" aria-label="самый дешевый билет">
+          ⚡️
+        </span>
+      </FastestTicket>
+    )}
+    {props.best && (
+      <BestTicket>
+        Лучший билет{" "}
+        <span role="img" aria-label="самый дешевый билет">
+          😍
+        </span>
+      </BestTicket>
+    )}
+    <Card>
+      <Header>
+        <Price>{props.price} &#8381;</Price>
+        <picture>
+          {props.airlines.length < 2 ? (
+            <BigLogo src={props.airlines} />
+          ) : (
+            <div>
+              <SmallLogo src={props.airlines[0]} />
+              <SmallLogo src={props.airlines[1]} />
+            </div>
+          )}
+        </picture>
+      </Header>
+      <Destination>
+        <div className="row">
+          <div className="col-xs-5">
+            <DepartureIcon />
+            <Text>{props.toTime}</Text>
+          </div>
+          <div className="col-xs-4">
+            <ClockIcon />
+            <Text>{props.toDuration}</Text>
+          </div>
+          <div className="col-xs-3">
+            <Text>{props.toType}</Text>
+          </div>
         </div>
-        <div className="col-xs-4">
-          <ClockIcon />
-          <Text>5 ч</Text>
+      </Destination>
+      <Destination>
+        <div className="row">
+          <div className="col-xs-5">
+            <ArrivalIcon />
+            <Text>{props.fromTime}</Text>
+          </div>
+          <div className="col-xs-4">
+            <ClockIcon />
+            <Text>{props.fromDuration}</Text>
+          </div>
+          <div className="col-xs-3">
+            <Text>{props.fromType}</Text>
+          </div>
         </div>
-        <div className="col-xs-3">
-          <Text>Прямой</Text>
-        </div>
-      </div>
-    </Destination>
-    <Destination>
-      <div className="row">
-        <div className="col-xs-5">
-          <ArrivalIcon />
-          <Text>10:35 — 17:10</Text>
-        </div>
-        <div className="col-xs-4">
-          <ClockIcon />
-          <Text>4 ч 35 м</Text>
-        </div>
-        <div className="col-xs-3">
-          <Text>Прямой</Text>
-        </div>
-      </div>
-    </Destination>
-  </Card>
+      </Destination>
+    </Card>
+  </div>
 );

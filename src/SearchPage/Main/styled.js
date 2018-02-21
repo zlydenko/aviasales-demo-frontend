@@ -9,6 +9,7 @@ export const GoUp = Button.extend`
   display: block;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 16px;
 `;
 
 export const Main = styled.main`
