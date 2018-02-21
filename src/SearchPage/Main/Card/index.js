@@ -52,11 +52,11 @@ export default props => (
         <Price>{props.price} &#8381;</Price>
         <picture>
           {props.airlines.length < 2 ? (
-            <BigLogo src={props.airlines} />
+            <BigLogo src={props.airlines} alt="" />
           ) : (
             <div>
-              <SmallLogo src={props.airlines[0]} />
-              <SmallLogo src={props.airlines[1]} />
+              <SmallLogo src={props.airlines[0]} alt="" />
+              <SmallLogo src={props.airlines[1]} alt="" />
             </div>
           )}
         </picture>
