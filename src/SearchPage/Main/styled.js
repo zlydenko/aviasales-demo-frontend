@@ -17,3 +17,15 @@ export const Main = styled.main`
   padding-top: 8px;
   padding-bottom: 16px;
 `;
+
+export const FilterBtn = Button.extend`
+  font-weight: 900;
+  border: none;
+  background-color: #00ace2;
+  text-transform: none;
+  margin-top: 4px;
+  padding: 10px 24px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+`;

@@ -1,5 +1,5 @@
 import React from "react";
-import { GoUp, Main } from "./styled";
+import { GoUp, Main, FilterBtn } from "./styled";
 import Card from "./Card";
 import tickets from "./tickets.js";
 
@@ -22,5 +22,6 @@ export default () => (
         fromType={ticket.tickets[1].type}
       />
     ))}
+    <FilterBtn>Фильтровать</FilterBtn>
   </Main>
 );
