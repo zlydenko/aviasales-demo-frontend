@@ -9,7 +9,8 @@ import {
   Title,
   SubTitle,
   SearchBtn,
-  Img
+  Img,
+  LinktoSearch
 } from "./styled";
 
 export const Logotype = () => (
@@ -20,32 +21,37 @@ export const Logotype = () => (
 );
 
 export const SearchButton = () => (
-  <SearchBtn>
-    Найти билеты
-    <Img src={plane} alt="Найти билеты" />
-  </SearchBtn>
+  <LinktoSearch to="/search/">
+    <SearchBtn>
+      Найти билеты
+      <Img src={plane} alt="Найти билеты" />
+    </SearchBtn>
+  </LinktoSearch>
 );
 
-const Header = () => (
-  <Section>
-    <div className="container">
-      <div className="row">
-        <div className="col-xs-2 col-md-3 col-lg-2">
-          <Logotype />
-        </div>
-      </div>
-      <div className="row center-xs">
-        <div className="col-xs-12 col-md-10">
-          <Title>Поиск дешевых авиабилетов</Title>
-          <SubTitle>Лучший способ купить авиабилеты дешево</SubTitle>
-          <form>
-            <Search />
-            <SearchButton />
-          </form>
-        </div>
-      </div>
-    </div>
-  </Section>
-);
+export default class Header extends React.Component {
+  render() {
+    return (
+      <Section>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-2 col-md-3 col-lg-2">
+              <Logotype />
+            </div>
+          </div>
+          <div className="row center-xs">
+            <div className="col-xs-12 col-md-10">
+              <Title>Поиск дешевых авиабилетов</Title>
+              <SubTitle>Лучший способ купить авиабилеты дешево</SubTitle>
+              <form>
+                <Search />
 
-export default Header;
+                <SearchButton />
+              </form>
+            </div>
+          </div>
+        </div>
+      </Section>
+    );
+  }
+}

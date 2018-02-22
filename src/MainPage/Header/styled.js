@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Section = styled.header`
   min-height: 100vh;
@@ -305,4 +306,9 @@ export const SearchBtn = styled.button`
 
 export const Img = styled.img`
   margin-left: 8px;
+`;
+
+export const LinktoSearch = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;
