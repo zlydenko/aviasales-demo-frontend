@@ -97,7 +97,7 @@ export default () => (
         </SelectPassenger>
       </Inputs>
     </Layout>
-    <LinktoSearch to="/search/">
+    <LinktoSearch to="/result">
       <SearchBtn>
         Найти билеты
         <Img src={plane} alt="Найти билеты" />
