@@ -10,12 +10,10 @@ import flySmall from "./logo/flySmall.png";
 export default [
   {
     type: "cheepest",
-    buyInfo: [
-      {
-        ticketSeller: "Clickavia",
-        price: 7712
-      }
-    ],
+    buyInfo: {
+      ticketSeller: "Clickavia",
+      price: 7712
+    },
     airlines: [rossiya],
     baggage: [
       {
@@ -53,12 +51,10 @@ export default [
   },
   {
     type: "best",
-    buyInfo: [
-      {
-        ticketSeller: "Билетик Аэро",
-        price: 8029
-      }
-    ],
+    buyInfo: {
+      ticketSeller: "Билетик Аэро",
+      price: 8029
+    },
     airlines: [nordwind],
     baggage: [
       {
@@ -95,12 +91,10 @@ export default [
     }
   },
   {
-    buyInfo: [
-      {
-        ticketSeller: "Aviakassa",
-        price: 8164
-      }
-    ],
+    buyInfo: {
+      ticketSeller: "Aviakassa",
+      price: 8164
+    },
     airlines: [nordwindAnother],
     baggage: [
       {
@@ -142,11 +136,11 @@ export default [
     }
   },
   {
-    buyInfo: [
-      {
-        ticketSeller: "Билетик Аэро",
-        price: 8164
-      },
+    buyInfo: {
+      ticketSeller: "Билетик Аэро",
+      price: 8164
+    },
+    additionalOffers: [
       {
         ticketSeller: "Clickavia",
         price: 8302
@@ -200,12 +194,10 @@ export default [
     }
   },
   {
-    buyInfo: [
-      {
-        ticketSeller: "Clickavia",
-        price: 9108
-      }
-    ],
+    buyInfo: {
+      ticketSeller: "Clickavia",
+      price: 9108
+    },
     airlines: [redwingsSmall, redwingsSmallAnother],
     baggage: [
       {
@@ -243,12 +235,12 @@ export default [
   },
   {
     type: "fastest",
-    buyInfo: [
-      {
-        ticketSeller: "Biletix",
-        price: 9269,
-        ticketsLeft: 4
-      },
+    buyInfo: {
+      ticketSeller: "Biletix",
+      price: 9269,
+      ticketsLeft: 4
+    },
+    additionalOffers: [
       {
         ticketSeller: "Svyaznoy Travel",
         price: 9275
@@ -298,12 +290,10 @@ export default [
     }
   },
   {
-    buyInfo: [
-      {
-        ticketSeller: "Clickavia",
-        price: 9485
-      }
-    ],
+    buyInfo: {
+      ticketSeller: "Clickavia",
+      price: 9485
+    },
     airlines: [redwingsSmallAnother, flySmall],
     baggage: [
       {
