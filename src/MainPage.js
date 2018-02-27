@@ -9,20 +9,16 @@ import About from "./About";
 import Download from "./Download";
 import Footer from "./Footer";
 
-export default class MainPage extends React.Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <PopularDestinations />
-        <BestPrice />
-        <Slider />
-        <Subscription />
-        <SpecialOffers />
-        <About />
-        <Download />
-        <Footer />
-      </div>
-    );
-  }
-}
+export default () => (
+  <div>
+    <Header />
+    <PopularDestinations />
+    <BestPrice />
+    <Slider />
+    <Subscription />
+    <SpecialOffers />
+    <About />
+    <Download />
+    <Footer />
+  </div>
+);
