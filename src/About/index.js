@@ -1,58 +1,22 @@
 import React from "react";
-import styled from "styled-components";
-import planeIcon from "./plane.png";
-import emailIcon from "./email.png";
-import listIcon from "./list.png";
-import planeIcon2x from "./plane2x.png";
-import emailIcon2x from "./email2x.png";
-import listIcon2x from "./list2x.png";
 
-const Wrapper = styled.section`
-  padding-top: 20px;
-  padding-bottom: 25px;
-  padding-right: 8px;
-  padding-left: 8px;
-`;
+import planeIcon from "./img/plane.png";
+import emailIcon from "./img/email.png";
+import listIcon from "./img/list.png";
+import planeIcon2x from "./img/plane2x.png";
+import emailIcon2x from "./img/email2x.png";
+import listIcon2x from "./img/list2x.png";
 
-const Card = styled.div`
-  width: 100%;
-  color: #4a4a4a;
-  font-size: 14px;
-  line-height: 20px;
-  text-align: left;
-  margin-bottom: 16px;
+import { Wrapper, Card, Title, Link, Img } from "./styled";
 
-  &:last-child {
-    margin-bottom: 0px;
-  }
-`;
-
-const Title = styled.h2`
-  text-transform: uppercase;
-  font-size: 13px;
-  line-height: 18px;
-  display: flex;
-  align-items: center;
-  margin: 0px;
-  margin-bottom: 12px;
-`;
-
-const Link = styled.a`
-  display: inline;
-  text-decoration: none;
-  font-size: 14px;
-  line-height: 20px;
-  color: #00ace2;
-`;
-
-const About = () => (
+export default () => (
   <Wrapper>
     <div className="row center-xs">
       <div className="col-xs-12 col-lg-10">
         <Card>
           <Title>
             <picture>
-              <img src={planeIcon} srcSet={`${planeIcon2x} 2x`} alt="" />
+              <Img src={planeIcon} srcSet={`${planeIcon2x} 2x`} alt="" />
             </picture>
             как купить дешевые авиабилеты?
           </Title>
@@ -73,7 +37,7 @@ const About = () => (
         <Card>
           <Title>
             <picture>
-              <img src={emailIcon} srcSet={`${emailIcon2x} 2x`} alt="" />
+              <Img src={emailIcon} srcSet={`${emailIcon2x} 2x`} alt="" />
             </picture>
             электронный авиабилет
           </Title>
@@ -96,7 +60,7 @@ const About = () => (
         <Card>
           <Title>
             <picture>
-              <img src={listIcon} srcSet={`${listIcon2x} 2x`} alt="" />
+              <Img src={listIcon} srcSet={`${listIcon2x} 2x`} alt="" />
             </picture>
             20 советов авиапутешественникам
           </Title>
@@ -112,5 +76,3 @@ const About = () => (
     </div>
   </Wrapper>
 );
-
-export default About;
