@@ -1,27 +1,21 @@
 import React from "react";
 import { GoUp, Main, FilterBtn } from "./styled";
+import filter from "./filter.svg";
 import Card from "./Card";
-import tickets from "./tickets.js";
+import tickets from "../../data/tickets";
 
 export default () => (
   <Main>
-    <GoUp>Наверх</GoUp>
-    {tickets.map((ticket, key) => (
-      <Card
-        key={key}
-        cheepest={ticket.type === "cheepest"}
-        fastest={ticket.type === "fastest"}
-        best={ticket.type === "best"}
-        price={ticket.price}
-        airlines={ticket.airlines}
-        toTime={ticket.tickets[0].time}
-        toDuration={ticket.tickets[0].duration}
-        toType={ticket.tickets[0].type}
-        fromTime={ticket.tickets[1].time}
-        fromDuration={ticket.tickets[1].duration}
-        fromType={ticket.tickets[1].type}
-      />
-    ))}
+    <GoUp>
+      <div className="hidden-md hidden-lg hidden-xl">Наверх</div>
+      <img src={filter} alt="" />
+    </GoUp>
+    <div className="row">
+      <div className="col-xs-3">sadas</div>
+      <div className="col-xs-12 col-xl-7">
+        {tickets.map((ticket, key) => <Card key={key} data={ticket} />)}
+      </div>
+    </div>
     <FilterBtn>Фильтровать</FilterBtn>
   </Main>
 );
