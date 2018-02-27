@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import format from "date-fns/format";
+import ruLocale from "date-fns/locale/ru";
 
 const Card = styled.div`
   background-color: #fff;
@@ -120,6 +122,13 @@ const DateText = styled.p`
   text-align: right;
 `;
 
+const currencyOptions = {
+  style: "currency",
+  currency: "RUB",
+  currencyDisplay: "symbol",
+  minimumFractionDigits: 0
+};
+
 export default props => {
   return (
     <Card>
@@ -133,8 +142,12 @@ export default props => {
           </DirectionInfo>
         </Direction>
         <AdditionalInfo>
-          <Link href="./">Найти от {props.price}&#8381;</Link>
-          <DateText>{props.date}</DateText>
+          <Link href="./">
+            Найти от {props.price.toLocaleString("ru-RU", currencyOptions)}
+          </Link>
+          <DateText>
+            {format(props.date, "D MMMM", { locale: ruLocale })}
+          </DateText>
         </AdditionalInfo>
       </Caption>
     </Card>
