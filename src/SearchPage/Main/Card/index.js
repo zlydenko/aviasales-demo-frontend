@@ -5,9 +5,13 @@ import { CheepestTicket, FastestTicket, BestTicket, Card } from "./styled";
 import share from "./share.svg";
 import departure from "./departure.svg";
 import arrival from "./arrival.svg";
+import expandIcon from "./expandIcon.svg";
 
 import format from "date-fns/format";
 import ruLocale from "date-fns/locale/ru";
+
+const durationCalc = minutes =>
+  ((minutes / 60) ^ 0) + " ч " + minutes % 60 + " м ";
 
 const currencyOptions = {
   style: "currency",
@@ -28,8 +32,8 @@ const AdditionalInfo = styled.div`
 const BuyBtn = styled.button`
   padding-top: 8px;
   padding-bottom: 8px;
-  padding-right: 42px;
-  padding-left: 42px;
+  padding-right: 16px;
+  padding-left: 16px;
   background-color: #ff6d00;
   color: #fff;
   border: none;
@@ -106,6 +110,7 @@ const Info = styled.main`
   padding-top: 16px;
   padding-bottom: 24px;
   padding-left: 16px;
+  padding-right: 16px;
   border-left: 1px solid #dddddd;
 `;
 const AirlinesLogoSmall = styled.img`
@@ -215,6 +220,13 @@ const Arrival = Departure.extend`
 }
 `;
 
+const Expand = styled.button`
+  border: none;
+  background: #edf5f7 center no-repeat;
+  background-image: url(${expandIcon});
+  padding: 10px;
+`;
+
 export default props => (
   <div>
     <div className="hidden-md hidden-lg hidden-xl">
@@ -314,7 +326,9 @@ export default props => (
             <RouteScheme>
               <DurationContainer>
                 <img src={departure} alt="" />
-                <Duration>Всего:{props.data.to.duration} м</Duration>
+                <Duration>
+                  Всего: {durationCalc(props.data.to.duration)}
+                </Duration>
                 <img src={arrival} alt="" />
               </DurationContainer>
               <RouteRange />
@@ -354,7 +368,9 @@ export default props => (
             <RouteScheme>
               <DurationContainer>
                 <img src={departure} alt="" />
-                <Duration>Всего:{props.data.from.duration} м</Duration>
+                <Duration>
+                  Всего: {durationCalc(props.data.from.duration)}
+                </Duration>
                 <img src={arrival} alt="" />
               </DurationContainer>
               <RouteRange />
@@ -379,6 +395,7 @@ export default props => (
           </Route>
         </Main>
       </Info>
+      <Expand />
     </Card>
   </div>
 );
