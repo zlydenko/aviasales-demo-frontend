@@ -27,7 +27,7 @@ export const Main = styled.main`
 `;
 
 export const FilterBtn = Button.extend`
-  font-weight: 900;
+  font-weight: 500;
   border: none;
   background-color: #00ace2;
   text-transform: none;
@@ -36,4 +36,9 @@ export const FilterBtn = Button.extend`
   display: block;
   margin-right: auto;
   margin-left: auto;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    border-radius: 4px;
+  }
 `;
