@@ -2,10 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { CheepestTicket, FastestTicket, BestTicket, Card } from "./styled";
 
+import Baggage from "./Baggage";
 import share from "./share.svg";
 import departure from "./departure.svg";
 import arrival from "./arrival.svg";
 import expandIcon from "./expandIcon.svg";
+import duration from "./duration.svg";
+import departureMobile from "./departureMobile.svg";
+import arrivalMobile from "./arrivalMobile.svg";
 
 import format from "date-fns/format";
 import ruLocale from "date-fns/locale/ru";
@@ -27,17 +31,22 @@ const currencyOptions = {
 const AdditionalInfo = styled.div`
   padding: 0px 23px 32px 18px;
   flex: 0 0 25%;
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
 `;
 
 const BuyBtn = styled.button`
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-right: 16px;
-  padding-left: 16px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 24px;
+  padding-left: 24px;
   background-color: #ff6d00;
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
   display: block;
   margin-right: auto;
@@ -93,7 +102,13 @@ const Header = styled.header`
 `;
 
 const AirlinesLogo = styled.img``;
-const CharterandLink = styled.div``;
+const CharterandLink = styled.div`
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+`;
 const Charter = styled.div`
   border: 1px solid #2196f3;
   border-radius: 15px;
@@ -111,7 +126,10 @@ const Info = styled.main`
   padding-bottom: 24px;
   padding-left: 16px;
   padding-right: 16px;
-  border-left: 1px solid #dddddd;
+
+  @media (min-width: 768px) {
+    border-left: 1px solid #dddddd;
+  }
 `;
 const AirlinesLogoSmall = styled.img`
   padding: 4px;
@@ -130,7 +148,12 @@ const Route = styled.div`
 
   &:first-child {
     padding-top: 0px;
-    border-bottom: 1px dashed #dddddd;
+  }
+
+  @media (min-width: 768px) {
+    &:first-child {
+      border-bottom: 1px dashed #dddddd;
+    }
   }
 `;
 const Departure = styled.div``;
@@ -152,13 +175,17 @@ const FullDate = City.extend`
   font-weight: 400;
 `;
 const RouteScheme = styled.div`
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   flex-basis: auto;
   flex-grow: 1;
   margin-right: 12px;
   margin-left: 12px;
+
+  @media (min-width: 1200px) {
+    display: flex;
+  }
 `;
 
 const DurationContainer = styled.div`
@@ -225,12 +252,45 @@ const Expand = styled.button`
   background: #edf5f7 center no-repeat;
   background-image: url(${expandIcon});
   padding: 10px;
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+`;
+
+const PriceMobile = styled.div`
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 500;
+  color: #ff9241;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
+const RouteMobile = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
+  line-height: 18px;
+  color: #4a4a4a;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
+const Img = styled.img`
+  margin-right: 4px;
 `;
 
 export default props => (
   <div>
     <div className="hidden-md hidden-lg hidden-xl">
-      {props.data.cheepest && (
+      {props.data.type === "cheepest" && (
         <CheepestTicket>
           Самый дешевый{" "}
           <span role="img" aria-label="самый дешевый билет">
@@ -238,7 +298,7 @@ export default props => (
           </span>
         </CheepestTicket>
       )}
-      {props.data.fastest && (
+      {props.data.type === "fastest" && (
         <FastestTicket>
           Самый быстрый{" "}
           <span role="img" aria-label="самый дешевый билет">
@@ -246,7 +306,7 @@ export default props => (
           </span>
         </FastestTicket>
       )}
-      {props.data.best && (
+      {props.data.type === "best" && (
         <BestTicket>
           Лучший билет{" "}
           <span role="img" aria-label="самый дешевый билет">
@@ -257,6 +317,7 @@ export default props => (
     </div>
     <Card>
       <AdditionalInfo>
+        <Baggage data={props.data.baggage} />
         {props.data.buyInfo.ticketsLeft && (
           <TicketsLeft>
             Осталось {props.data.buyInfo.ticketsLeft} билета
@@ -294,6 +355,9 @@ export default props => (
       </AdditionalInfo>
       <Info>
         <Header>
+          <PriceMobile>
+            {props.data.buyInfo.price.toLocaleString("ru-RU", currencyOptions)}
+          </PriceMobile>
           {props.data.airlines.length === 1 ? (
             <AirlinesLogo src={props.data.airlines} alt="" />
           ) : (
@@ -310,19 +374,40 @@ export default props => (
         </Header>
         <Main>
           <Route>
-            <Departure>
-              <Time>
-                {format(props.data.to.departure.timestamp, "HH:mm", {
-                  locale: ruLocale
-                })}
-              </Time>
-              <City>{props.data.to.departure.city}</City>
-              <FullDate>
-                {format(props.data.to.departure.timestamp, "D MMM YYYY, dd", {
-                  locale: ruLocale
-                })}
-              </FullDate>
-            </Departure>
+            <div className="hidden-xs hidden-sm">
+              <Departure>
+                <Time>
+                  {format(props.data.to.departure.timestamp, "HH:mm", {
+                    locale: ruLocale
+                  })}
+                </Time>
+                <City>{props.data.to.departure.city}</City>
+                <FullDate>
+                  {format(props.data.to.departure.timestamp, "D MMM YYYY, dd", {
+                    locale: ruLocale
+                  })}
+                </FullDate>
+              </Departure>
+            </div>
+            <RouteMobile>
+              <div>
+                <Img src={departureMobile} alt="" />
+                <span>
+                  {format(props.data.to.departure.timestamp, "HH:mm", {
+                    locale: ruLocale
+                  })}{" "}
+                  —{" "}
+                  {format(props.data.to.arrival.timestamp, "HH:mm", {
+                    locale: ruLocale
+                  })}
+                </span>
+              </div>
+              <div>
+                <Img src={duration} alt="" />
+                <span>{durationCalc(props.data.to.duration)}</span>
+              </div>
+              <span>Прямой</span>
+            </RouteMobile>
             <RouteScheme>
               <DurationContainer>
                 <img src={departure} alt="" />
@@ -337,34 +422,42 @@ export default props => (
                 <span>{props.data.to.arrival.IATA}</span>
               </IATACodes>
             </RouteScheme>
-            <Arrival>
-              <Time>
-                {format(props.data.to.arrival.timestamp, "HH:mm", {
-                  locale: ruLocale
-                })}
-              </Time>
-              <City>{props.data.to.arrival.city}</City>
-              <FullDate>
-                {format(props.data.to.arrival.timestamp, "D MMM YYYY, dd", {
-                  locale: ruLocale
-                })}
-              </FullDate>
-            </Arrival>
+            <div className="hidden-xs hidden-sm">
+              <Arrival>
+                <Time>
+                  {format(props.data.to.arrival.timestamp, "HH:mm", {
+                    locale: ruLocale
+                  })}
+                </Time>
+                <City>{props.data.to.arrival.city}</City>
+                <FullDate>
+                  {format(props.data.to.arrival.timestamp, "D MMM YYYY, dd", {
+                    locale: ruLocale
+                  })}
+                </FullDate>
+              </Arrival>
+            </div>
           </Route>
           <Route>
-            <Departure>
-              <Time>
-                {format(props.data.from.departure.timestamp, "HH:mm", {
-                  locale: ruLocale
-                })}
-              </Time>
-              <City>{props.data.from.departure.city}</City>
-              <FullDate>
-                {format(props.data.from.departure.timestamp, "D MMM YYYY, dd", {
-                  locale: ruLocale
-                })}
-              </FullDate>
-            </Departure>
+            <div className="hidden-xs hidden-sm">
+              <Departure>
+                <Time>
+                  {format(props.data.from.departure.timestamp, "HH:mm", {
+                    locale: ruLocale
+                  })}
+                </Time>
+                <City>{props.data.from.departure.city}</City>
+                <FullDate>
+                  {format(
+                    props.data.from.departure.timestamp,
+                    "D MMM YYYY, dd",
+                    {
+                      locale: ruLocale
+                    }
+                  )}
+                </FullDate>
+              </Departure>
+            </div>
             <RouteScheme>
               <DurationContainer>
                 <img src={departure} alt="" />
@@ -379,19 +472,40 @@ export default props => (
                 <span>{props.data.from.arrival.IATA}</span>
               </IATACodes>
             </RouteScheme>
-            <Arrival>
-              <Time>
-                {format(props.data.from.arrival.timestamp, "HH:mm", {
-                  locale: ruLocale
-                })}
-              </Time>
-              <City>{props.data.from.arrival.city}</City>
-              <FullDate>
-                {format(props.data.from.arrival.timestamp, "D MMM YYYY, dd", {
-                  locale: ruLocale
-                })}
-              </FullDate>
-            </Arrival>
+            <div className="hidden-xs hidden-sm">
+              <Arrival>
+                <Time>
+                  {format(props.data.from.arrival.timestamp, "HH:mm", {
+                    locale: ruLocale
+                  })}
+                </Time>
+                <City>{props.data.from.arrival.city}</City>
+                <FullDate>
+                  {format(props.data.from.arrival.timestamp, "D MMM YYYY, dd", {
+                    locale: ruLocale
+                  })}
+                </FullDate>
+              </Arrival>
+            </div>
+            <RouteMobile>
+              <div>
+                <Img src={arrivalMobile} alt="" />
+                <span>
+                  {format(props.data.from.departure.timestamp, "HH:mm", {
+                    locale: ruLocale
+                  })}{" "}
+                  —{" "}
+                  {format(props.data.from.arrival.timestamp, "HH:mm", {
+                    locale: ruLocale
+                  })}
+                </span>
+              </div>
+              <div>
+                <Img src={duration} alt="" />
+                <span>{durationCalc(props.data.from.duration)}</span>
+              </div>
+              <span>Прямой</span>
+            </RouteMobile>
           </Route>
         </Main>
       </Info>

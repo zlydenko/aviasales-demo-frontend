@@ -1,18 +1,17 @@
 import styled from "styled-components";
-import shape from "./Shape.svg";
 
 export const Card = styled.div`
   background-color: #fff;
-  padding-top: 12px;
-  padding-bottom: 14px;
-  padding-right: 6px;
-  padding-left: 6px;
+
   display: flex;
   margin-bottom: 8px;
   border-radius: 4px;
 
-  @media (min-width: 768px) {
-    padding: 0px;
+  @media (min-width: 1200px) {
+    padding-top: 12px;
+    padding-bottom: 14px;
+    padding-right: 6px;
+    padding-left: 6px;
   }
 `;
 
@@ -106,16 +105,4 @@ export const Info = styled.div`
   padding-top: 10px;
   padding-right: 23px;
   padding-left: 23px;
-`;
-
-export const Svgimg = styled.div`
-  background-image: url(${shape});
-  width: 17px;
-  height: 23px;
-  padding-top: 7px;
-  padding-right: 2.5px;
-  padding-left: 2.5px;
-  font-size: 10px;
-  line-height: 12px;
-  color: #9ab0b9;
 `;
