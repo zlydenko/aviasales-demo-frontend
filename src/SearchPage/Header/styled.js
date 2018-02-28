@@ -12,14 +12,24 @@ export const Header = styled.header`
     #02abdb -35.02%,
     #196ebd 52.98%
   );
+
+  @media (min-width: 768px) {
+    background: ;
+  }
+`;
+
+export const Container = styled.div`
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Title = styled.p`
-  display: inline;
   margin: 0px;
   color: #fff;
   font-size: 16px;
@@ -27,7 +37,6 @@ export const Title = styled.p`
 `;
 
 export const Text = styled.p`
-  display: inline-block;
   margin: 0px;
   color: #fff;
   font-size: 12px;
@@ -49,4 +58,10 @@ export const Back = styled.img`
 export const Info = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const Line = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
 `;
