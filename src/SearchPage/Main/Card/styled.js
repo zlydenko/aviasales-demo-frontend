@@ -6,13 +6,6 @@ export const Card = styled.div`
   display: flex;
   margin-bottom: 8px;
   border-radius: 4px;
-
-  @media (min-width: 1200px) {
-    padding-top: 12px;
-    padding-bottom: 14px;
-    padding-right: 6px;
-    padding-left: 6px;
-  }
 `;
 
 export const Header = styled.header`
