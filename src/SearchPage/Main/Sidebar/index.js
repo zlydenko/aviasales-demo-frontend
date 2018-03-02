@@ -35,6 +35,20 @@ const RangeWrapper = styled.li`
   }
 `;
 
+const AirlinesSubtitle = Subtitle.extend`
+  margin-bottom: 8px;
+  margin-top: 16px;
+`;
+
+const Caption = styled.p`
+  font-size: 12px;
+  line-height: 16px;
+  text-align: left;
+  margin-bottom: 24px;
+  margin-top: 3px;
+  color: #4a4a4a;
+`;
+
 export default () => (
   <Container>
     <DropdownList title="пересадки" opened>
@@ -111,7 +125,65 @@ export default () => (
         <Range durationFrom={15000} durationTo={148800} />
       </RangeWrapper>
     </DropdownList>
-    <DropdownList title="авиакомпании" counter={43} />
+    <DropdownList title="авиакомпании" counter={43} opened>
+      <li>
+        <Checkbox id={"few-airlines"} label={"Несколько авиакомпаний"} />
+        <Caption>
+          Показывать билеты с перелетами, выполняемыми несколькими
+          авиакомпаниями, включая выбранную
+        </Caption>
+      </li>
+      <li>
+        <AirlinesSubtitle>Альянсы</AirlinesSubtitle>
+        <Checkbox id={"all-alliances"} label={"Все"} />
+      </li>
+      <li>
+        <Checkbox id={"star-alliance"} label={"Star Alliance"} />
+      </li>
+      <li>
+        <Checkbox id={"oneworld"} label={"OneWorld"} />
+      </li>
+      <li>
+        <Checkbox id={"skyteam"} label={"SkyTeam"} />
+      </li>
+      <li>
+        <AirlinesSubtitle>Авиакомпании</AirlinesSubtitle>
+        <Checkbox id={"all-airlines"} label={"Все"} />
+      </li>
+      <li>
+        <Checkbox id={"aegean-airlines"} label={"Aegean Airlines"} />
+      </li>
+      <li>
+        <Checkbox id={"air-algerie"} label={"Air Algerie"} />
+      </li>
+      <li>
+        <Checkbox id={"air-europa"} label={"Air Europa"} />
+      </li>
+      <li>
+        <Checkbox id={"air-france"} label={"Air France"} />
+      </li>
+      <li>
+        <Checkbox id={"air-moldova"} label={"Air Moldova"} />
+      </li>
+      <li>
+        <Checkbox id={"alitalia"} label={"Alitalia"} />
+      </li>
+      <li>
+        <Checkbox id={"alitalia-cityliner"} label={"Alitalia CityLiner"} />
+      </li>
+      <li>
+        <Checkbox id={"belle-air"} label={"Belle Air"} />
+      </li>
+      <li>
+        <Checkbox id={"british-airways"} label={"British Airways"} />
+      </li>
+      <li>
+        <Checkbox id={"brussels-airlines"} label={"Brussels Airlines"} />
+      </li>
+      <li>
+        <Checkbox id={"bulgaria-air"} label={"Bulgaria Air"} />
+      </li>
+    </DropdownList>
     <DropdownList title="аэропорты" />
     <DropdownList title="аэропорт пересадки" counter={71} />
     <DropdownList title="агенства" counter={26} />
