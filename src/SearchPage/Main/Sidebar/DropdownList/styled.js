@@ -13,6 +13,7 @@ export const Title = styled.h3`
   display: flex;
   align-content: center;
   border-bottom: ${props => (props.opened ? "none" : "1px solid #DDDDDD")};
+  cursor: pointer;
 `;
 
 export const Filters = styled.ul`

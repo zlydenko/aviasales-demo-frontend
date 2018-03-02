@@ -6,6 +6,7 @@ import Checkbox from "./Checkbox";
 import Range from "./Range";
 
 import plane from "./plane.svg";
+import clear from "./clear.svg";
 
 const Container = styled.div`
   background-color: #fff;
@@ -47,6 +48,24 @@ const Caption = styled.p`
   margin-bottom: 24px;
   margin-top: 3px;
   color: #4a4a4a;
+`;
+
+const ClearFilters = styled.button`
+  border: none;
+  background-color: inherit;
+  font-size: 12px;
+  line-height: 52px;
+  color: #00bde4;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  cursor: pointer;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;s
 `;
 
 export default () => (
@@ -187,5 +206,9 @@ export default () => (
     <DropdownList title="аэропорты" />
     <DropdownList title="аэропорт пересадки" counter={71} />
     <DropdownList title="агенства" counter={26} />
+    <ClearFilters>
+      <span>Сбросить все фильтры</span>
+      <img src={clear} alt="" />
+    </ClearFilters>
   </Container>
 );
