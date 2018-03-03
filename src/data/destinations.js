@@ -10,48 +10,48 @@ import flagEs from "./flags/flag-es.png";
 
 const destinationList = [
   {
-    city: "Краснодар",
-    country: "Россия",
+    city: "Krasnodar",
+    country: "Russia",
     price: 1212,
     date: 1521324000000,
     img: krasnodar,
     countryFlag: flagRu
   },
   {
-    city: "Сочи (Адлер)",
-    country: "Россия",
+    city: "Sochi",
+    country: "Russia",
     price: 1334,
     date: 1522098000000,
     img: sochi,
     countryFlag: flagRu
   },
   {
-    city: "Санкт-Петербург",
-    country: "Россия",
+    city: "Saint-Petersburg",
+    country: "Russia",
     price: 1508,
     date: 1518991200000,
     img: saintpetersburg,
     countryFlag: flagRu
   },
   {
-    city: "Минеральные Воды",
-    country: "Россия",
+    city: "Mineralnie Vodi",
+    country: "Russia",
     price: 2074,
     date: 1520892000000,
     img: minvodi,
     countryFlag: flagRu
   },
   {
-    city: "Симферополь (Крым)",
-    country: "Россия",
+    city: "Simferopol",
+    country: "Russia",
     price: 2407,
     date: 1520892000000,
     img: simferopol,
     countryFlag: flagRu
   },
   {
-    city: "Барселона",
-    country: "Испания",
+    city: "Barselona",
+    country: "Spain",
     price: 4247,
     date: 1521842400000,
     img: barselona,

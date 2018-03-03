@@ -10,10 +10,12 @@ import flySmall from "./logo/flySmall.png";
 export default [
   {
     type: "cheepest",
-    buyInfo: {
-      ticketSeller: "Clickavia",
-      price: 7712
-    },
+    proposals: [
+      {
+        ticketSeller: 1,
+        price: 7712
+      }
+    ],
     airlines: [rossiya],
     baggage: [
       {
@@ -25,12 +27,12 @@ export default [
     to: {
       departure: {
         timestamp: 1519423500000,
-        city: "Москва",
+        city: "Moscow",
         IATA: "VKO"
       },
       arrival: {
         timestamp: 1519434300000,
-        city: "Барселона",
+        city: "Barselona",
         IATA: "BCN"
       },
       duration: 300
@@ -38,12 +40,12 @@ export default [
     from: {
       departure: {
         timestamp: 1520066100000,
-        city: "Барселона",
+        city: "Barselona",
         IATA: "BCN"
       },
       arrival: {
         timestamp: 1520089800000,
-        city: "Москва",
+        city: "Moscow",
         IATA: "SVO"
       },
       duration: 275
@@ -51,10 +53,12 @@ export default [
   },
   {
     type: "best",
-    buyInfo: {
-      ticketSeller: "Билетик Аэро",
-      price: 8029
-    },
+    proposals: [
+      {
+        ticketSeller: 2,
+        price: 8029
+      }
+    ],
     airlines: [nordwind],
     baggage: [
       {
@@ -66,12 +70,12 @@ export default [
     to: {
       departure: {
         timestamp: 1519424100000,
-        city: "Москва",
+        city: "Moscow",
         IATA: "VKO"
       },
       arrival: {
         timestamp: 1519434600000,
-        city: "Барселона",
+        city: "Barselona",
         IATA: "BCN"
       },
       duration: 295
@@ -79,22 +83,24 @@ export default [
     from: {
       departure: {
         timestamp: 1520066700000,
-        city: "Барселона",
+        city: "Barselona",
         IATA: "BCN"
       },
       arrival: {
         timestamp: 1520090100000,
-        city: "Москва",
+        city: "Moscow",
         IATA: "SVO"
       },
       duration: 270
     }
   },
   {
-    buyInfo: {
-      ticketSeller: "Aviakassa",
-      price: 8164
-    },
+    proposals: [
+      {
+        ticketSeller: 3,
+        price: 8164
+      }
+    ],
     airlines: [nordwindAnother],
     baggage: [
       {
@@ -111,12 +117,12 @@ export default [
     to: {
       departure: {
         timestamp: 1519424100000,
-        city: "Москва",
+        city: "Moscow",
         IATA: "VKO"
       },
       arrival: {
         timestamp: 1519434600000,
-        city: "Барселона",
+        city: "Barselona",
         IATA: "BCN"
       },
       duration: 295
@@ -124,29 +130,29 @@ export default [
     from: {
       departure: {
         timestamp: 1520066700000,
-        city: "Барселона",
+        city: "Barselona",
         IATA: "BCN"
       },
       arrival: {
         timestamp: 1520090100000,
-        city: "Москва",
+        city: "Moscow",
         IATA: "SVO"
       },
       duration: 270
     }
   },
   {
-    buyInfo: {
-      ticketSeller: "Билетик Аэро",
-      price: 8164
-    },
-    additionalOffers: [
+    proposals: [
       {
-        ticketSeller: "Clickavia",
+        ticketSeller: 2,
+        price: 8164
+      },
+      {
+        ticketSeller: 1,
         price: 8302
       },
       {
-        ticketSeller: "Aviakassa",
+        ticketSeller: 3,
         price: 8376
       },
       {},
@@ -169,12 +175,12 @@ export default [
     to: {
       departure: {
         timestamp: 1519448400000,
-        city: "Москва",
+        city: "Moscow",
         IATA: "VKO"
       },
       arrival: {
         timestamp: 1519457400000,
-        city: "Барселона",
+        city: "Barselona",
         IATA: "BCN"
       },
       duration: 270
@@ -182,22 +188,24 @@ export default [
     from: {
       departure: {
         timestamp: 1520067600000,
-        city: "Барселона",
+        city: "Barselona",
         IATA: "BCN"
       },
       arrival: {
         timestamp: 1520089800000,
-        city: "Москва",
+        city: "Moscow",
         IATA: "SVO"
       },
       duration: 250
     }
   },
   {
-    buyInfo: {
-      ticketSeller: "Clickavia",
-      price: 9108
-    },
+    proposals: [
+      {
+        ticketSeller: 1,
+        price: 9108
+      }
+    ],
     airlines: [redwingsSmall, redwingsSmallAnother],
     baggage: [
       {
@@ -209,12 +217,12 @@ export default [
     to: {
       departure: {
         timestamp: 1519423500000,
-        city: "Москва",
+        city: "Moscow",
         IATA: "VKO"
       },
       arrival: {
         timestamp: 1519434300000,
-        city: "Барселона",
+        city: "Barselona",
         IATA: "BCN"
       },
       duration: 300
@@ -222,12 +230,12 @@ export default [
     from: {
       departure: {
         timestamp: 1520067600000,
-        city: "Барселона",
+        city: "Barselona",
         IATA: "BCN"
       },
       arrival: {
         timestamp: 1520089800000,
-        city: "Москва",
+        city: "Moscow",
         IATA: "SVO"
       },
       duration: 250
@@ -235,18 +243,18 @@ export default [
   },
   {
     type: "fastest",
-    buyInfo: {
-      ticketSeller: "Biletix",
-      price: 9269,
-      ticketsLeft: 4
-    },
-    additionalOffers: [
+    proposals: [
       {
-        ticketSeller: "Svyaznoy Travel",
+        ticketSeller: 4,
+        price: 9269,
+        ticketsLeft: 4
+      },
+      {
+        ticketSeller: 5,
         price: 9275
       },
       {
-        ticketSeller: "Билетик Аэро",
+        ticketSeller: 2,
         price: 9587
       },
       {},
@@ -265,12 +273,12 @@ export default [
     to: {
       departure: {
         timestamp: 1519450200000,
-        city: "Москва",
+        city: "Moscow",
         IATA: "VKO"
       },
       arrival: {
         timestamp: 1519458600000,
-        city: "Барселона",
+        city: "Barselona",
         IATA: "BCN"
       },
       duration: 260
@@ -278,22 +286,24 @@ export default [
     from: {
       departure: {
         timestamp: 1520068800000,
-        city: "Барселона",
+        city: "Barselona",
         IATA: "BCN"
       },
       arrival: {
         timestamp: 1520091300000,
-        city: "Москва",
+        city: "Moscow",
         IATA: "SVO"
       },
       duration: 255
     }
   },
   {
-    buyInfo: {
-      ticketSeller: "Clickavia",
-      price: 9485
-    },
+    proposals: [
+      {
+        ticketSeller: 1,
+        price: 9485
+      }
+    ],
     airlines: [redwingsSmallAnother, flySmall],
     baggage: [
       {
@@ -305,12 +315,12 @@ export default [
     to: {
       departure: {
         timestamp: 1519423500000,
-        city: "Москва",
+        city: "Moscow",
         IATA: "VKO"
       },
       arrival: {
         timestamp: 1519434300000,
-        city: "Барселона",
+        city: "Barselona",
         IATA: "BCN"
       },
       duration: 300
@@ -318,12 +328,12 @@ export default [
     from: {
       departure: {
         timestamp: 1520068800000,
-        city: "Барселона",
+        city: "Barselona",
         IATA: "BCN"
       },
       arrival: {
         timestamp: 1520091300000,
-        city: "Москва",
+        city: "Moscow",
         IATA: "SVO"
       },
       duration: 255
