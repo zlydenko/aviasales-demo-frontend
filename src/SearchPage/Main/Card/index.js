@@ -13,6 +13,7 @@ import arrivalMobile from "./arrivalMobile.svg";
 
 import format from "date-fns/format";
 import ruLocale from "date-fns/locale/ru";
+import { destinations as ruNames, partners } from "../../../data/ruLocale";
 
 const durationCalc = minutes =>
   ((minutes / 60) ^ 0) + " ч " + minutes % 60 + " м ";
@@ -23,10 +24,6 @@ const currencyOptions = {
   currencyDisplay: "symbol",
   minimumFractionDigits: 0
 };
-
-// const DepartureIcon = () => <Icon src={departure} alt="" />;
-// const ArrivalIcon = () => <Icon src={arrival} alt="" />;
-// const ClockIcon = () => <Icon src={clock} alt="" />;
 
 const AdditionalInfo = styled.div`
   padding: 0px 23px 32px 18px;
@@ -318,26 +315,31 @@ export default props => (
     <Card>
       <AdditionalInfo>
         <Baggage data={props.data.baggage} />
-        {props.data.buyInfo.ticketsLeft && (
+        {props.data.proposals[0].ticketsLeft && (
           <TicketsLeft>
-            Осталось {props.data.buyInfo.ticketsLeft} билета
+            Осталось {props.data.proposals[0].ticketsLeft} билета
           </TicketsLeft>
         )}
         <BuyBtn>
           <ButtonText>Купить</ButtonText>
           <ButtonText>
             за{" "}
-            {props.data.buyInfo.price.toLocaleString("ru-RU", currencyOptions)}
+            {props.data.proposals[0].price.toLocaleString(
+              "ru-RU",
+              currencyOptions
+            )}
           </ButtonText>
         </BuyBtn>
-        <SellerName>на {props.data.buyInfo.ticketSeller}</SellerName>
-        {props.data.additionalOffers && (
+        <SellerName>
+          на {partners[props.data.proposals[0].ticketSeller]}
+        </SellerName>
+        {props.data.proposals.length > 1 && (
           <AdditionalSellers>
-            {props.data.additionalOffers.map((ticket, key) => {
-              if (Object.keys(ticket).length !== 0) {
+            {props.data.proposals.map((ticket, key) => {
+              if (key >= 1 && key <= 2) {
                 return (
                   <AdditionalSeller key={key}>
-                    {ticket.ticketSeller}
+                    {partners[ticket.ticketSeller]}
 
                     <AdditionalSellersPrice>
                       {ticket.price.toLocaleString("ru-RU", currencyOptions)}
@@ -345,18 +347,24 @@ export default props => (
                   </AdditionalSeller>
                 );
               }
+              return null;
             })}
 
-            <AdditionalSellersCounter>
-              + Ещё {props.data.additionalOffers.length - 2} предложения
-            </AdditionalSellersCounter>
+            {props.data.proposals.length > 3 && (
+              <AdditionalSellersCounter>
+                + Ещё {props.data.proposals.length - 3} предложения
+              </AdditionalSellersCounter>
+            )}
           </AdditionalSellers>
         )}
       </AdditionalInfo>
       <Info>
         <Header>
           <PriceMobile>
-            {props.data.buyInfo.price.toLocaleString("ru-RU", currencyOptions)}
+            {props.data.proposals[0].price.toLocaleString(
+              "ru-RU",
+              currencyOptions
+            )}
           </PriceMobile>
           {props.data.airlines.length === 1 ? (
             <AirlinesLogo src={props.data.airlines} alt="" />
@@ -381,7 +389,7 @@ export default props => (
                     locale: ruLocale
                   })}
                 </Time>
-                <City>{props.data.to.departure.city}</City>
+                <City>{ruNames[props.data.to.departure.city]}</City>
                 <FullDate>
                   {format(props.data.to.departure.timestamp, "D MMM YYYY, dd", {
                     locale: ruLocale
@@ -429,7 +437,7 @@ export default props => (
                     locale: ruLocale
                   })}
                 </Time>
-                <City>{props.data.to.arrival.city}</City>
+                <City>{ruNames[props.data.to.arrival.city]}</City>
                 <FullDate>
                   {format(props.data.to.arrival.timestamp, "D MMM YYYY, dd", {
                     locale: ruLocale
@@ -446,7 +454,7 @@ export default props => (
                     locale: ruLocale
                   })}
                 </Time>
-                <City>{props.data.from.departure.city}</City>
+                <City>{ruNames[props.data.from.departure.city]}</City>
                 <FullDate>
                   {format(
                     props.data.from.departure.timestamp,
@@ -479,7 +487,7 @@ export default props => (
                     locale: ruLocale
                   })}
                 </Time>
-                <City>{props.data.from.arrival.city}</City>
+                <City>{ruNames[props.data.from.arrival.city]}</City>
                 <FullDate>
                   {format(props.data.from.arrival.timestamp, "D MMM YYYY, dd", {
                     locale: ruLocale

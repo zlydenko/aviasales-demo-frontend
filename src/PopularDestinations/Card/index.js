@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import format from "date-fns/format";
 import ruLocale from "date-fns/locale/ru";
+import { destinations as ruTitles } from "../../data/ruLocale";
 
 const Card = styled.div`
   background-color: #fff;
@@ -132,13 +133,13 @@ const currencyOptions = {
 export default props => {
   return (
     <Card>
-      <Cover src={props.img} alt={props.country} />
+      <Cover src={props.img} alt={ruTitles[props.country]} />
       <Caption>
         <Direction>
-          <Flag src={props.countryFlag} alt={props.country} />
+          <Flag src={props.countryFlag} alt={ruTitles[props.country]} />
           <DirectionInfo>
-            <City>{props.city}</City>
-            <Country>{props.country}</Country>
+            <City>{ruTitles[props.city]}</City>
+            <Country>{ruTitles[props.country]}</Country>
           </DirectionInfo>
         </Direction>
         <AdditionalInfo>
