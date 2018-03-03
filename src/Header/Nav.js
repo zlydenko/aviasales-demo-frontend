@@ -77,7 +77,7 @@ const Additional = styled.aside`
 
 const Currency = styled.button`
   margin-left: auto;
-  padding: 6px 6px;
+  padding: 6px 16px;
   background: transparent;
   border: 2px solid #ffffff;
   border-radius: 100px;
