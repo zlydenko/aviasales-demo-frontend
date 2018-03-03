@@ -80,6 +80,5 @@ export default props => (
         ))}
       </BaggageTabs>
     )}
-    {/* {props.data.map((baggage, id) => <BaggageInfo data={baggage} key={id} />)} */}
   </Container>
 );
