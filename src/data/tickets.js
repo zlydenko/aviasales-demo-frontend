@@ -265,7 +265,7 @@ export default [
     airlines: [fly],
     baggage: [
       {
-        handLuggage: "?",
+        handLuggage: undefined,
         baggage: 20
       }
     ],
@@ -307,7 +307,7 @@ export default [
     airlines: [redwingsSmallAnother, flySmall],
     baggage: [
       {
-        handLuggage: "?",
+        handLuggage: undefined,
         baggage: 15
       }
     ],
