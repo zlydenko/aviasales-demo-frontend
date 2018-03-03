@@ -46,7 +46,7 @@ const DateWrapper = styled.div`
     flex-basis: 25%;
   }
   @media (min-width: 1200px) {
-    flex-basis: 14%;
+    flex-basis: ${props => (props.onLanding ? "16%" : "14%")};
   }
 `;
 
@@ -83,14 +83,14 @@ export default class extends React.Component {
         <City>
           <ArrivalCity />
         </City>
-        <DateWrapper>
+        <DateWrapper onLanding={this.props.onLanding}>
           <DepartureDate
             dateFrom={this.state.dateFrom}
             dateTo={this.state.dateTo}
             onChange={this.change("dateFrom")}
           />
         </DateWrapper>
-        <DateWrapper>
+        <DateWrapper onLanding={this.props.onLanding}>
           <ArrivalDate
             dateFrom={this.state.dateFrom}
             dateTo={this.state.dateTo}
