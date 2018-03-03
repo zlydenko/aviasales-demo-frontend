@@ -1,4 +1,6 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
+
 import Header from "./Header";
 import PopularDestinations from "./PopularDestinations";
 import BestPrice from "./BestPrice";
@@ -9,9 +11,11 @@ import About from "./About";
 import Download from "./Download";
 import Footer from "./Footer";
 
+const Head = withRouter(Header);
+
 export default () => (
   <div>
-    <Header />
+    <Head />
     <PopularDestinations />
     <BestPrice />
     <Slider />
