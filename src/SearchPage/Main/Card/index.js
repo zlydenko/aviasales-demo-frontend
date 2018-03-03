@@ -11,6 +11,7 @@ import duration from "./duration.svg";
 import departureMobile from "./departureMobile.svg";
 import arrivalMobile from "./arrivalMobile.svg";
 
+import pluralize from "pluralize-ru";
 import format from "date-fns/format";
 import ruLocale from "date-fns/locale/ru";
 import { destinations as ruNames, partners } from "../../../data/ruLocale";
@@ -317,7 +318,19 @@ export default props => (
         <Baggage data={props.data.baggage} />
         {props.data.proposals[0].ticketsLeft && (
           <TicketsLeft>
-            Осталось {props.data.proposals[0].ticketsLeft} билета
+            {pluralize(
+              props.data.proposals[0].ticketsLeft,
+              "Не осталось ",
+              "Остался ",
+              "Осталось "
+            )}
+            {pluralize(
+              props.data.proposals[0].ticketsLeft,
+              "нет билетов",
+              "%d билет",
+              "%d билета",
+              "%d билетов"
+            )}
           </TicketsLeft>
         )}
         <BuyBtn>
@@ -352,7 +365,14 @@ export default props => (
 
             {props.data.proposals.length > 3 && (
               <AdditionalSellersCounter>
-                + Ещё {props.data.proposals.length - 3} предложения
+                + Ещё{" "}
+                {pluralize(
+                  props.data.proposals.length - 3,
+                  "нет предложений",
+                  "%d предложение",
+                  "%d предложения",
+                  "%d предложений"
+                )}
               </AdditionalSellersCounter>
             )}
           </AdditionalSellers>
