@@ -64,25 +64,44 @@ const Passengers = styled.div`
   }
 `;
 
-export default props => {
-  return (
-    <Form onLanding={props.onLanding}>
-      <City>
-        <DepartureCity />
-      </City>
-      <City>
-        <ArrivalCity />
-      </City>
-      <DateWrapper>
-        <DepartureDate />
-      </DateWrapper>
-      <DateWrapper>
-        <ArrivalDate />
-      </DateWrapper>
-      <Passengers onLanding={props.onLanding}>
-        <SelectPassengers />
-      </Passengers>
-      <Btn onLanding={props.onLanding} />
-    </Form>
-  );
-};
+export default class extends React.Component {
+  state = {
+    dateFrom: new Date(),
+    dateTo: undefined
+  };
+
+  change = id => value => {
+    this.setState({ [id]: value });
+  };
+
+  render() {
+    return (
+      <Form onLanding={this.props.onLanding}>
+        <City>
+          <DepartureCity />
+        </City>
+        <City>
+          <ArrivalCity />
+        </City>
+        <DateWrapper>
+          <DepartureDate
+            dateFrom={this.state.dateFrom}
+            dateTo={this.state.dateTo}
+            onChange={this.change("dateFrom")}
+          />
+        </DateWrapper>
+        <DateWrapper>
+          <ArrivalDate
+            dateFrom={this.state.dateFrom}
+            dateTo={this.state.dateTo}
+            onChange={this.change("dateFrom")}
+          />
+        </DateWrapper>
+        <Passengers onLanding={this.props.onLanding}>
+          <SelectPassengers />
+        </Passengers>
+        <Btn onLanding={this.props.onLanding} />
+      </Form>
+    );
+  }
+}
