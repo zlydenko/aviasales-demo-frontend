@@ -5,7 +5,7 @@ import edit from "./edit.svg";
 
 import Categories from "./Categories";
 import Card from "./Card";
-import destinationList from "./destinationList.js";
+import destinationList from "../data/destinations";
 
 const Container = styled.section`
   background-color: #f8fcff;

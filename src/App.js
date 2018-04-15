@@ -1,28 +1,20 @@
-import React, { Component } from "react";
-import Header from "./Header";
-import PopularDestinations from "./PopularDestinations";
-import BestPrice from "./BestPrice";
-import Slider from "./Slider";
-import Subscription from "./Subscription";
-import SpecialOffers from "./SpecialOffers";
-import About from "./About";
-import Download from "./Download";
-import Footer from "./Footer";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { IntlProvider, addLocaleData } from "react-intl";
+import ru from "react-intl/locale-data/ru";
 
-export default class App extends Component {
-  render() {
-    return (
+import MainPage from "./MainPage";
+import Search from "./SearchPage";
+
+addLocaleData(ru);
+
+export default () => (
+  <IntlProvider locale="ru">
+    <Router>
       <div>
-        <Header />
-        <PopularDestinations />
-        <BestPrice />
-        <Slider />
-        <Subscription />
-        <SpecialOffers />
-        <About />
-        <Download />
-        <Footer />
+        <Route exact path="/" component={MainPage} />
+        <Route path="/result" component={Search} />
       </div>
-    );
-  }
-}
+    </Router>
+  </IntlProvider>
+);

@@ -1,126 +1,42 @@
 import React from "react";
-import styled from "styled-components";
 
-import appStore from "./apple.png";
-import appStore2x from "./apple2x.png";
-import googlePlay from "./android.png";
-import googlePlay2x from "./android2x.png";
-import winPhone from "./win.png";
-import winPhone2x from "./win2x.png";
+import appStore from "./img/apple.png";
+import appStore2x from "./img/apple2x.png";
+import googlePlay from "./img/android.png";
+import googlePlay2x from "./img/android2x.png";
+import winPhone from "./img/win.png";
+import winPhone2x from "./img/win2x.png";
 
-import vkontakte from "./vkontakte.png";
-import facebook from "./facebook.png";
-import instagram from "./instagram.png";
-import twitter from "./twitter.png";
-import viber from "./viber.png";
-import vkontakte2x from "./vkontakte2x.png";
-import facebook2x from "./facebook2x.png";
-import instagram2x from "./instagram2x.png";
-import twitter2x from "./twitter2x.png";
-import viber2x from "./viber2x.png";
+import vkontakte from "./img/vkontakte.png";
+import facebook from "./img/facebook.png";
+import instagram from "./img/instagram.png";
+import twitter from "./img/twitter.png";
+import viber from "./img/viber.png";
+import vkontakte2x from "./img/vkontakte2x.png";
+import facebook2x from "./img/facebook2x.png";
+import instagram2x from "./img/instagram2x.png";
+import twitter2x from "./img/twitter2x.png";
+import viber2x from "./img/viber2x.png";
 
-const Title = styled.h2`
-  margin: 0px;
-  margin-bottom: 16px;
-  font-size: 15px;
-  line-height: 16px;
-  color: #4a4a4a;
-  font-weight: 500;
-  text-transform: uppercase;
-`;
-
-const Link = styled.a`
-  display: block;
-  text-decoration: none;
-  color: #5b5b5c;
-  font-size: 12px;
-  line-height: 16px;
-  margin-bottom: 12px;
-`;
-
-const MoreLink = Link.extend`
-  font-size: 14px;
-  color: #4a4a4a;
-  margin-bottom: 0px;
-  margin-top: 4px;
-  font-weight: 500;
-`;
-
-const LinkList = styled.div`
-  margin-bottom: 30px;
-`;
-
-const Links = styled.div`
-  padding-top: 32px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e0e6e8;
-  margin-bottom: 24px;
-`;
-
-const LegalLink = Link.extend`
-  display: inline-block;
-  margin-right: 5px;
-`;
-
-const SocialLink = Link.extend`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 5px;
-`;
-
-const SocialIcon = styled.img`
-  margin-right: 5px;
-`;
-
-const Download = styled.div`
-  margin-top: 24px;
-`;
-
-const LegalInfo = styled.p`
-  margin-top: 16px;
-  margin-bottom: 24px;
-  font-size: 12px;
-  line-height: 16px;
-  color: #5b5b5c;
-`;
-
-const Img = styled.img`
-  @media (min-width: 768px) {
-    margin-right: 8px;
-  }
-`;
-
-const About = styled.div`
-  padding-top: 24px;
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 1200px) {
-    padding-top: 40px;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-`;
-
-const LegalLinks = styled.div`
-  @media (min-width: 768px) {
-    text-align: left;
-  }
-`;
-
-const Nav = styled.div`
-  text-align: left;
-`;
-
-const Text = styled.p`
-  display: inline;
-`;
-
-const SocialLinks = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
+import {
+  Links,
+  LinkList,
+  Title,
+  Link,
+  MoreLink,
+  About,
+  LegalLinks,
+  Nav,
+  LegalLink,
+  SocialLinks,
+  SocialLink,
+  SocialIcon,
+  Text,
+  Download,
+  Img,
+  LegalInfo,
+  DownloadLink
+} from "./styled";
 
 const Footer = () => (
   <div className="container">
@@ -249,23 +165,27 @@ const Footer = () => (
         </Text>
       </LegalLinks>
       <LegalLinks>
-        <Download>
-          <a href="./">
-            <picture>
-              <Img src={appStore} srcSet={`${appStore2x} 2x`} alt="" />
-            </picture>
-          </a>
-          <a href="./">
-            <picture>
-              <Img src={googlePlay} srcSet={`${googlePlay2x} 2x`} alt="" />
-            </picture>
-          </a>
-          <a href="./">
-            <picture>
-              <Img src={winPhone} srcSet={`${winPhone2x} 2x`} alt="" />
-            </picture>
-          </a>
-        </Download>
+        <div className="row center-xs">
+          <div className="col-xs-12">
+            <Download>
+              <DownloadLink href="./">
+                <picture>
+                  <Img src={appStore} srcSet={`${appStore2x} 2x`} alt="" />
+                </picture>
+              </DownloadLink>
+              <DownloadLink href="./">
+                <picture>
+                  <Img src={googlePlay} srcSet={`${googlePlay2x} 2x`} alt="" />
+                </picture>
+              </DownloadLink>
+              <DownloadLink href="./">
+                <picture>
+                  <Img src={winPhone} srcSet={`${winPhone2x} 2x`} alt="" />
+                </picture>
+              </DownloadLink>
+            </Download>
+          </div>
+        </div>
         <Text>
           <LegalInfo>© 2007–2018, Aviasales — дешевые авиабилеты</LegalInfo>
         </Text>
